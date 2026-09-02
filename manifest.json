@@ -1,0 +1,11 @@
+{
+  "domain": "mon_panier",
+  "name": "Mon Panier",
+  "version": "0.1.0",
+  "documentation": "https://github.com/Eole35/mon_panier",
+  "issue_tracker": "https://github.com/Eole35/mon_panier/issues",
+  "codeowners": [],
+  "config_flow": true,
+  "requirements": [],
+  "iot_class": "local_push"
+}
