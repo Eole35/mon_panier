@@ -1,0 +1,106 @@
+{
+  "categories": [
+    {
+      "id": "fruits_legumes",
+      "name": "Fruits & légumes",
+      "icon": "🍎",
+      "default_order": 1
+    },
+    {
+      "id": "viandes",
+      "name": "Viandes",
+      "icon": "🥩",
+      "default_order": 2
+    },
+    {
+      "id": "poissonnerie",
+      "name": "Poissonnerie",
+      "icon": "🐟",
+      "default_order": 3
+    },
+    {
+      "id": "fromagerie",
+      "name": "Fromagerie",
+      "icon": "🧀",
+      "default_order": 4
+    },
+    {
+      "id": "frais",
+      "name": "Frais",
+      "icon": "🥚",
+      "default_order": 5
+    },
+    {
+      "id": "produits_laitiers",
+      "name": "Produits laitiers",
+      "icon": "🥛",
+      "default_order": 6
+    },
+    {
+      "id": "boulangerie",
+      "name": "Boulangerie",
+      "icon": "🥖",
+      "default_order": 7
+    },
+    {
+      "id": "epicerie",
+      "name": "Épicerie",
+      "icon": "🥫",
+      "default_order": 8
+    },
+    {
+      "id": "vrac",
+      "name": "Vrac",
+      "icon": "🥜",
+      "default_order": 9
+    },
+    {
+      "id": "boissons",
+      "name": "Boissons",
+      "icon": "🥤",
+      "default_order": 10
+    },
+    {
+      "id": "surgeles",
+      "name": "Surgelés",
+      "icon": "🧊",
+      "default_order": 11
+    },
+    {
+      "id": "bebe",
+      "name": "Bébé",
+      "icon": "👶",
+      "default_order": 12
+    },
+    {
+      "id": "hygiene_beaute",
+      "name": "Hygiène & beauté",
+      "icon": "🧴",
+      "default_order": 13
+    },
+    {
+      "id": "entretien",
+      "name": "Entretien",
+      "icon": "🧹",
+      "default_order": 14
+    },
+    {
+      "id": "maison",
+      "name": "Maison",
+      "icon": "🏠",
+      "default_order": 15
+    },
+    {
+      "id": "jardin",
+      "name": "Jardin",
+      "icon": "🌱",
+      "default_order": 16
+    },
+    {
+      "id": "animaux",
+      "name": "Animaux",
+      "icon": "🐕",
+      "default_order": 17
+    }
+  ]
+}
