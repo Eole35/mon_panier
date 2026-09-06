@@ -1,1 +1,744 @@
+[
+  {
+    "id": "bananes",
+    "name": "Bananes",
+    "category": "fruits_legumes",
+    "synonyms": ["banane"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes",
+    "name": "Pommes",
+    "category": "fruits_legumes",
+    "synonyms": ["pomme"],
+    "source": "builtin"
+  },
+  {
+    "id": "poires",
+    "name": "Poires",
+    "category": "fruits_legumes",
+    "synonyms": ["poire"],
+    "source": "builtin"
+  },
+  {
+    "id": "oranges",
+    "name": "Oranges",
+    "category": "fruits_legumes",
+    "synonyms": ["orange"],
+    "source": "builtin"
+  },
+  {
+    "id": "clementines",
+    "name": "Clémentines",
+    "category": "fruits_legumes",
+    "synonyms": ["clementine"],
+    "source": "builtin"
+  },
+  {
+    "id": "mandarines",
+    "name": "Mandarines",
+    "category": "fruits_legumes",
+    "synonyms": ["mandarine"],
+    "source": "builtin"
+  },
+  {
+    "id": "citrons",
+    "name": "Citrons",
+    "category": "fruits_legumes",
+    "synonyms": ["citron"],
+    "source": "builtin"
+  },
+  {
+    "id": "pamplemousses",
+    "name": "Pamplemousses",
+    "category": "fruits_legumes",
+    "synonyms": ["pamplemousse"],
+    "source": "builtin"
+  },
+  {
+    "id": "kiwis",
+    "name": "Kiwis",
+    "category": "fruits_legumes",
+    "synonyms": ["kiwi"],
+    "source": "builtin"
+  },
+  {
+    "id": "ananas",
+    "name": "Ananas",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "mangues",
+    "name": "Mangues",
+    "category": "fruits_legumes",
+    "synonyms": ["mangue"],
+    "source": "builtin"
+  },
+  {
+    "id": "avocats",
+    "name": "Avocats",
+    "category": "fruits_legumes",
+    "synonyms": ["avocat"],
+    "source": "builtin"
+  },
+  {
+    "id": "melons",
+    "name": "Melons",
+    "category": "fruits_legumes",
+    "synonyms": ["melon"],
+    "source": "builtin"
+  },
+  {
+    "id": "pasteques",
+    "name": "Pastèques",
+    "category": "fruits_legumes",
+    "synonyms": ["pasteque"],
+    "source": "builtin"
+  },
+  {
+    "id": "raisins",
+    "name": "Raisins",
+    "category": "fruits_legumes",
+    "synonyms": ["raisin"],
+    "source": "builtin"
+  },
+  {
+    "id": "fraises",
+    "name": "Fraises",
+    "category": "fruits_legumes",
+    "synonyms": ["fraise"],
+    "source": "builtin"
+  },
+  {
+    "id": "framboises",
+    "name": "Framboises",
+    "category": "fruits_legumes",
+    "synonyms": ["framboise"],
+    "source": "builtin"
+  },
+  {
+    "id": "myrtilles",
+    "name": "Myrtilles",
+    "category": "fruits_legumes",
+    "synonyms": ["myrtille"],
+    "source": "builtin"
+  },
+  {
+    "id": "cerises",
+    "name": "Cerises",
+    "category": "fruits_legumes",
+    "synonyms": ["cerise"],
+    "source": "builtin"
+  },
+  {
+    "id": "abricots",
+    "name": "Abricots",
+    "category": "fruits_legumes",
+    "synonyms": ["abricot"],
+    "source": "builtin"
+  },
+  {
+    "id": "peches",
+    "name": "Pêches",
+    "category": "fruits_legumes",
+    "synonyms": ["peche"],
+    "source": "builtin"
+  },
+  {
+    "id": "nectarines",
+    "name": "Nectarines",
+    "category": "fruits_legumes",
+    "synonyms": ["nectarine"],
+    "source": "builtin"
+  },
+  {
+    "id": "prunes",
+    "name": "Prunes",
+    "category": "fruits_legumes",
+    "synonyms": ["prune"],
+    "source": "builtin"
+  },
+  {
+    "id": "figues",
+    "name": "Figues",
+    "category": "fruits_legumes",
+    "synonyms": ["figue"],
+    "source": "builtin"
+  },
+  {
+    "id": "grenades",
+    "name": "Grenades",
+    "category": "fruits_legumes",
+    "synonyms": ["grenade"],
+    "source": "builtin"
+  },
+  {
+    "id": "noix_de_coco",
+    "name": "Noix de coco",
+    "category": "fruits_legumes",
+    "synonyms": ["noix coco", "coco"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes_de_terre",
+    "name": "Pommes de terre",
+    "category": "fruits_legumes",
+    "synonyms": ["pomme de terre", "pdt", "patates", "patate"],
+    "source": "builtin"
+  },
+  {
+    "id": "carottes",
+    "name": "Carottes",
+    "category": "fruits_legumes",
+    "synonyms": ["carotte"],
+    "source": "builtin"
+  },
+  {
+    "id": "courgettes",
+    "name": "Courgettes",
+    "category": "fruits_legumes",
+    "synonyms": ["courgette"],
+    "source": "builtin"
+  },
+  {
+    "id": "aubergines",
+    "name": "Aubergines",
+    "category": "fruits_legumes",
+    "synonyms": ["aubergine"],
+    "source": "builtin"
+  },
+  {
+    "id": "tomates",
+    "name": "Tomates",
+    "category": "fruits_legumes",
+    "synonyms": ["tomate"],
+    "source": "builtin"
+  },
+  {
+    "id": "tomates_cerises",
+    "name": "Tomates cerises",
+    "category": "fruits_legumes",
+    "synonyms": ["tomate cerise", "tomates cherry", "tomate cherry"],
+    "source": "builtin"
+  },
+  {
+    "id": "concombres",
+    "name": "Concombres",
+    "category": "fruits_legumes",
+    "synonyms": ["concombre"],
+    "source": "builtin"
+  },
+  {
+    "id": "poivrons",
+    "name": "Poivrons",
+    "category": "fruits_legumes",
+    "synonyms": ["poivron"],
+    "source": "builtin"
+  },
+  {
+    "id": "salade_verte",
+    "name": "Salade verte",
+    "category": "fruits_legumes",
+    "synonyms": ["salade"],
+    "source": "builtin"
+  },
+  {
+    "id": "laitue",
+    "name": "Laitue",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "endives",
+    "name": "Endives",
+    "category": "fruits_legumes",
+    "synonyms": ["endive"],
+    "source": "builtin"
+  },
+  {
+    "id": "epinards",
+    "name": "Épinards",
+    "category": "fruits_legumes",
+    "synonyms": ["epinard"],
+    "source": "builtin"
+  },
+  {
+    "id": "brocolis",
+    "name": "Brocolis",
+    "category": "fruits_legumes",
+    "synonyms": ["brocoli"],
+    "source": "builtin"
+  },
+  {
+    "id": "chou_fleur",
+    "name": "Chou-fleur",
+    "category": "fruits_legumes",
+    "synonyms": ["chou fleur"],
+    "source": "builtin"
+  },
+  {
+    "id": "chou_vert",
+    "name": "Chou vert",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "chou_rouge",
+    "name": "Chou rouge",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "choux_de_bruxelles",
+    "name": "Choux de Bruxelles",
+    "category": "fruits_legumes",
+    "synonyms": ["chou de bruxelles"],
+    "source": "builtin"
+  },
+  {
+    "id": "haricots_verts",
+    "name": "Haricots verts",
+    "category": "fruits_legumes",
+    "synonyms": ["haricot vert"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pois",
+    "name": "Petits pois",
+    "category": "fruits_legumes",
+    "synonyms": ["petit pois"],
+    "source": "builtin"
+  },
+  {
+    "id": "mais",
+    "name": "Maïs",
+    "category": "fruits_legumes",
+    "synonyms": ["mais"],
+    "source": "builtin"
+  },
+  {
+    "id": "champignons",
+    "name": "Champignons",
+    "category": "fruits_legumes",
+    "synonyms": ["champignon"],
+    "source": "builtin"
+  },
+  {
+    "id": "oignons",
+    "name": "Oignons",
+    "category": "fruits_legumes",
+    "synonyms": ["oignon"],
+    "source": "builtin"
+  },
+  {
+    "id": "echalotes",
+    "name": "Échalotes",
+    "category": "fruits_legumes",
+    "synonyms": ["echalote"],
+    "source": "builtin"
+  },
+  {
+    "id": "ail",
+    "name": "Ail",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "poireaux",
+    "name": "Poireaux",
+    "category": "fruits_legumes",
+    "synonyms": ["poireau"],
+    "source": "builtin"
+  },
+  {
+    "id": "celeri",
+    "name": "Céleri",
+    "category": "fruits_legumes",
+    "synonyms": ["celeri"],
+    "source": "builtin"
+  },
+  {
+    "id": "navets",
+    "name": "Navets",
+    "category": "fruits_legumes",
+    "synonyms": ["navet"],
+    "source": "builtin"
+  },
+  {
+    "id": "radis",
+    "name": "Radis",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "betteraves",
+    "name": "Betteraves",
+    "category": "fruits_legumes",
+    "synonyms": ["betterave"],
+    "source": "builtin"
+  },
+  {
+    "id": "fenouil",
+    "name": "Fenouil",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "asperges",
+    "name": "Asperges",
+    "category": "fruits_legumes",
+    "synonyms": ["asperge"],
+    "source": "builtin"
+  },
+  {
+    "id": "artichauts",
+    "name": "Artichauts",
+    "category": "fruits_legumes",
+    "synonyms": ["artichaut"],
+    "source": "builtin"
+  },
+  {
+    "id": "potiron",
+    "name": "Potiron",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "courge",
+    "name": "Courge",
+    "category": "fruits_legumes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "butternut",
+    "name": "Butternut",
+    "category": "fruits_legumes",
+    "synonyms": ["courge butternut"],
+    "source": "builtin"
+  },
+  {
+    "id": "patates_douces",
+    "name": "Patates douces",
+    "category": "fruits_legumes",
+    "synonyms": ["patate douce"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes_golden",
+    "name": "Pommes Golden",
+    "category": "fruits_legumes",
+    "synonyms": ["golden"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes_granny_smith",
+    "name": "Pommes Granny Smith",
+    "category": "fruits_legumes",
+    "synonyms": ["granny smith"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes_gala",
+    "name": "Pommes Gala",
+    "category": "fruits_legumes",
+    "synonyms": ["gala"],
+    "source": "builtin"
+  },
+  {
+    "id": "poires_williams",
+    "name": "Poires Williams",
+    "category": "fruits_legumes",
+    "synonyms": ["poire williams"],
+    "source": "builtin"
+  },
+  {
+    "id": "oranges_sanguines",
+    "name": "Oranges sanguines",
+    "category": "fruits_legumes",
+    "synonyms": ["orange sanguine"],
+    "source": "builtin"
+  },
+  {
+    "id": "citron_vert",
+    "name": "Citron vert",
+    "category": "fruits_legumes",
+    "synonyms": ["lime"],
+    "source": "builtin"
+  },
+  {
+    "id": "gingembre",
+    "name": "Gingembre",
+    "category": "fruits_legumes",
+    "synonyms": ["gingembre frais"],
+    "source": "builtin"
+  },
+  {
+    "id": "echalotes_francaises",
+    "name": "Échalotes françaises",
+    "category": "fruits_legumes",
+    "synonyms": ["echalote française"],
+    "source": "builtin"
+  }
+],
+  {
+    "id": "boeuf",
+    "name": "Bœuf",
+    "category": "viandes",
+    "synonyms": ["boeuf"],
+    "source": "builtin"
+  },
+  {
+    "id": "steak_hache",
+    "name": "Steak haché",
+    "category": "viandes",
+    "synonyms": ["steak hache", "steaks haches"],
+    "source": "builtin"
+  },
+  {
+    "id": "viande_hachee",
+    "name": "Viande hachée",
+    "category": "viandes",
+    "synonyms": ["viande hachee", "haché"],
+    "source": "builtin"
+  },
+  {
+    "id": "rumsteck",
+    "name": "Rumsteck",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "faux_filet",
+    "name": "Faux-filet",
+    "category": "viandes",
+    "synonyms": ["faux filet"],
+    "source": "builtin"
+  },
+  {
+    "id": "entrecote",
+    "name": "Entrecôte",
+    "category": "viandes",
+    "synonyms": ["entrecote"],
+    "source": "builtin"
+  },
+  {
+    "id": "bavette",
+    "name": "Bavette",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "roti_de_boeuf",
+    "name": "Rôti de bœuf",
+    "category": "viandes",
+    "synonyms": ["roti de boeuf"],
+    "source": "builtin"
+  },
+  {
+    "id": "veau",
+    "name": "Veau",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "escalope_de_veau",
+    "name": "Escalope de veau",
+    "category": "viandes",
+    "synonyms": ["escalope veau"],
+    "source": "builtin"
+  },
+  {
+    "id": "roti_de_veau",
+    "name": "Rôti de veau",
+    "category": "viandes",
+    "synonyms": ["roti de veau"],
+    "source": "builtin"
+  },
+  {
+    "id": "porc",
+    "name": "Porc",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "cotes_de_porc",
+    "name": "Côtes de porc",
+    "category": "viandes",
+    "synonyms": ["cote de porc"],
+    "source": "builtin"
+  },
+  {
+    "id": "roti_de_porc",
+    "name": "Rôti de porc",
+    "category": "viandes",
+    "synonyms": ["roti de porc"],
+    "source": "builtin"
+  },
+  {
+    "id": "filet_mignon",
+    "name": "Filet mignon",
+    "category": "viandes",
+    "synonyms": ["filet mignon de porc"],
+    "source": "builtin"
+  },
+  {
+    "id": "saucisses",
+    "name": "Saucisses",
+    "category": "viandes",
+    "synonyms": ["saucisse"],
+    "source": "builtin"
+  },
+  {
+    "id": "chipolatas",
+    "name": "Chipolatas",
+    "category": "viandes",
+    "synonyms": ["chipolata"],
+    "source": "builtin"
+  },
+  {
+    "id": "merguez",
+    "name": "Merguez",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "lardons",
+    "name": "Lardons",
+    "category": "viandes",
+    "synonyms": [
+      "lardon",
+      "lardons allumettes",
+      "lardons fumés",
+      "lardons fumes"
+    ],
+    "source": "builtin"
+  },
+  {
+    "id": "jambon_blanc",
+    "name": "Jambon blanc",
+    "category": "viandes",
+    "synonyms": ["jambon", "jambon cuit"],
+    "source": "builtin"
+  },
+  {
+    "id": "jambon_cru",
+    "name": "Jambon cru",
+    "category": "viandes",
+    "synonyms": ["jambon sec"],
+    "source": "builtin"
+  },
+  {
+    "id": "poulet",
+    "name": "Poulet",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "blanc_de_poulet",
+    "name": "Blanc de poulet",
+    "category": "viandes",
+    "synonyms": ["filet de poulet", "escalope de poulet"],
+    "source": "builtin"
+  },
+  {
+    "id": "cuisses_de_poulet",
+    "name": "Cuisses de poulet",
+    "category": "viandes",
+    "synonyms": ["cuisse de poulet"],
+    "source": "builtin"
+  },
+  {
+    "id": "ailes_de_poulet",
+    "name": "Ailes de poulet",
+    "category": "viandes",
+    "synonyms": ["aile de poulet"],
+    "source": "builtin"
+  },
+  {
+    "id": "dinde",
+    "name": "Dinde",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "escalope_de_dinde",
+    "name": "Escalope de dinde",
+    "category": "viandes",
+    "synonyms": ["escalope dinde"],
+    "source": "builtin"
+  },
+  {
+    "id": "filet_de_dinde",
+    "name": "Filet de dinde",
+    "category": "viandes",
+    "synonyms": ["blanc de dinde"],
+    "source": "builtin"
+  },
+  {
+    "id": "canard",
+    "name": "Canard",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "magret_de_canard",
+    "name": "Magret de canard",
+    "category": "viandes",
+    "synonyms": ["magret"],
+    "source": "builtin"
+  },
+  {
+    "id": "lapin",
+    "name": "Lapin",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "agneau",
+    "name": "Agneau",
+    "category": "viandes",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "cotes_d_agneau",
+    "name": "Côtes d'agneau",
+    "category": "viandes",
+    "synonyms": ["cote agneau"],
+    "source": "builtin"
+  },
+  {
+    "id": "gigot_d_agneau",
+    "name": "Gigot d'agneau",
+    "category": "viandes",
+    "synonyms": ["gigot agneau"],
+    "source": "builtin"
+  },
+  {
+    "id": "viande_a_bourguignon",
+    "name": "Viande à bourguignon",
+    "category": "viandes",
+    "synonyms": ["boeuf bourguignon"],
+    "source": "builtin"
+  }
+],
 
