@@ -488,8 +488,7 @@
     "category": "fruits_legumes",
     "synonyms": ["echalote française"],
     "source": "builtin"
-  }
-],
+  },
   {
     "id": "boeuf",
     "name": "Bœuf",
@@ -739,6 +738,795 @@
     "category": "viandes",
     "synonyms": ["boeuf bourguignon"],
     "source": "builtin"
-  }
-],
-
+  },
+  {
+    "id": "saumon",
+    "name": "Saumon",
+    "category": "poissonnerie",
+    "synonyms": ["saumon frais"],
+    "source": "builtin"
+  },
+  {
+    "id": "saumon_fume",
+    "name": "Saumon fumé",
+    "category": "poissonnerie",
+    "synonyms": ["saumon fume"],
+    "source": "builtin"
+  },
+  {
+    "id": "truite",
+    "name": "Truite",
+    "category": "poissonnerie",
+    "synonyms": ["truite fraîche", "truite fraiche"],
+    "source": "builtin"
+  },
+  {
+    "id": "cabillaud",
+    "name": "Cabillaud",
+    "category": "poissonnerie",
+    "synonyms": ["morue fraîche", "morue fraiche"],
+    "source": "builtin"
+  },
+  {
+    "id": "colin",
+    "name": "Colin",
+    "category": "poissonnerie",
+    "synonyms": ["merlu"],
+    "source": "builtin"
+  },
+  {
+    "id": "thon",
+    "name": "Thon",
+    "category": "poissonnerie",
+    "synonyms": ["thon frais"],
+    "source": "builtin"
+  },
+  {
+    "id": "thon_en_boite",
+    "name": "Thon en boîte",
+    "category": "poissonnerie",
+    "synonyms": ["thon boite", "thon au naturel"],
+    "source": "builtin"
+  },
+  {
+    "id": "sardines",
+    "name": "Sardines",
+    "category": "poissonnerie",
+    "synonyms": ["sardine"],
+    "source": "builtin"
+  },
+  {
+    "id": "maquereaux",
+    "name": "Maquereaux",
+    "category": "poissonnerie",
+    "synonyms": ["maquereau"],
+    "source": "builtin"
+  },
+  {
+    "id": "anchois",
+    "name": "Anchois",
+    "category": "poissonnerie",
+    "synonyms": ["anchois à l'huile", "anchois a l huile"],
+    "source": "builtin"
+  },
+  {
+    "id": "bar",
+    "name": "Bar",
+    "category": "poissonnerie",
+    "synonyms": ["bar de mer"],
+    "source": "builtin"
+  },
+  {
+    "id": "dorade",
+    "name": "Dorade",
+    "category": "poissonnerie",
+    "synonyms": ["dorade royale"],
+    "source": "builtin"
+  },
+  {
+    "id": "lotte",
+    "name": "Lotte",
+    "category": "poissonnerie",
+    "synonyms": ["queue de lotte"],
+    "source": "builtin"
+  },
+  {
+    "id": "crevettes",
+    "name": "Crevettes",
+    "category": "poissonnerie",
+    "synonyms": ["crevette", "crevettes roses"],
+    "source": "builtin"
+  },
+  {
+    "id": "moules",
+    "name": "Moules",
+    "category": "poissonnerie",
+    "synonyms": ["moule"],
+    "source": "builtin"
+  },
+  {
+    "id": "huitres",
+    "name": "Huîtres",
+    "category": "poissonnerie",
+    "synonyms": ["huitres", "huître"],
+    "source": "builtin"
+  },
+  {
+    "id": "calamars",
+    "name": "Calamars",
+    "category": "poissonnerie",
+    "synonyms": ["calamar", "encornets"],
+    "source": "builtin"
+  },
+  {
+    "id": "noix_de_saint_jacques",
+    "name": "Noix de Saint-Jacques",
+    "category": "poissonnerie",
+    "synonyms": ["saint jacques", "coquilles saint jacques"],
+    "source": "builtin"
+  },
+  {
+    "id": "tourteau",
+    "name": "Tourteau",
+    "category": "poissonnerie",
+    "synonyms": ["crabe"],
+    "source": "builtin"
+  },
+  {
+    "id": "camembert",
+    "name": "Camembert",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "brie",
+    "name": "Brie",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "comte",
+    "name": "Comté",
+    "category": "fromagerie",
+    "synonyms": ["conte"],
+    "source": "builtin"
+  },
+  {
+    "id": "emmental",
+    "name": "Emmental",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "gruyere",
+    "name": "Gruyère",
+    "category": "fromagerie",
+    "synonyms": ["gruyere"],
+    "source": "builtin"
+  },
+  {
+    "id": "raclette",
+    "name": "Raclette",
+    "category": "fromagerie",
+    "synonyms": ["fromage à raclette", "fromage a raclette"],
+    "source": "builtin"
+  },
+  {
+    "id": "reblochon",
+    "name": "Reblochon",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "roquefort",
+    "name": "Roquefort",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "bleu",
+    "name": "Bleu",
+    "category": "fromagerie",
+    "synonyms": ["bleu de fromage"],
+    "source": "builtin"
+  },
+  {
+    "id": "chevre",
+    "name": "Chèvre",
+    "category": "fromagerie",
+    "synonyms": ["chevre", "fromage de chèvre", "fromage de chevre"],
+    "source": "builtin"
+  },
+  {
+    "id": "buche_de_chevre",
+    "name": "Bûche de chèvre",
+    "category": "fromagerie",
+    "synonyms": ["buche de chevre"],
+    "source": "builtin"
+  },
+  {
+    "id": "feta",
+    "name": "Feta",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "mozzarella",
+    "name": "Mozzarella",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "burrata",
+    "name": "Burrata",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "parmesan",
+    "name": "Parmesan",
+    "category": "fromagerie",
+    "synonyms": ["parmigiano"],
+    "source": "builtin"
+  },
+  {
+    "id": "pecorino",
+    "name": "Pecorino",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "cheddar",
+    "name": "Cheddar",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "gouda",
+    "name": "Gouda",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "edam",
+    "name": "Edam",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "munster",
+    "name": "Munster",
+    "category": "fromagerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "pont_l_eveque",
+    "name": "Pont-l'Évêque",
+    "category": "fromagerie",
+    "synonyms": ["pont leveque"],
+    "source": "builtin"
+  },
+  {
+    "id": "saint_marcellin",
+    "name": "Saint-Marcellin",
+    "category": "fromagerie",
+    "synonyms": ["saint marcellin"],
+    "source": "builtin"
+  },
+  {
+    "id": "saint_nectaire",
+    "name": "Saint-Nectaire",
+    "category": "fromagerie",
+    "synonyms": ["saint nectaire"],
+    "source": "builtin"
+  },
+  {
+    "id": "tomme",
+    "name": "Tomme",
+    "category": "fromagerie",
+    "synonyms": ["tomme de montagne"],
+    "source": "builtin"
+  },
+  {
+    "id": "fromage_frais",
+    "name": "Fromage frais",
+    "category": "fromagerie",
+    "synonyms": ["fromage frais nature"],
+    "source": "builtin"
+  },
+  {
+    "id": "oeufs",
+    "name": "Œufs",
+    "category": "frais",
+    "synonyms": ["oeufs", "œuf", "oeuf"],
+    "source": "builtin"
+  },
+  {
+    "id": "oeufs_bio",
+    "name": "Œufs bio",
+    "category": "frais",
+    "synonyms": ["oeufs biologiques", "oeufs bio"],
+    "source": "builtin"
+  },
+  {
+    "id": "tofu",
+    "name": "Tofu",
+    "category": "frais",
+    "synonyms": ["tofu nature"],
+    "source": "builtin"
+  },
+  {
+    "id": "tofu_fume",
+    "name": "Tofu fumé",
+    "category": "frais",
+    "synonyms": ["tofu fume"],
+    "source": "builtin"
+  },
+  {
+    "id": "tempeh",
+    "name": "Tempeh",
+    "category": "frais",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "seitan",
+    "name": "Seitan",
+    "category": "frais",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "falafels",
+    "name": "Falafels",
+    "category": "frais",
+    "synonyms": ["falafel"],
+    "source": "builtin"
+  },
+  {
+    "id": "houmous",
+    "name": "Houmous",
+    "category": "frais",
+    "synonyms": ["hummus", "houmous nature"],
+    "source": "builtin"
+  },
+  {
+    "id": "guacamole",
+    "name": "Guacamole",
+    "category": "frais",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_feuilletee",
+    "name": "Pâte feuilletée",
+    "category": "frais",
+    "synonyms": ["pate feuilletee"],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_brisee",
+    "name": "Pâte brisée",
+    "category": "frais",
+    "synonyms": ["pate brisee"],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_a_pizza",
+    "name": "Pâte à pizza",
+    "category": "frais",
+    "synonyms": ["pate a pizza"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_fraiche_epaisse",
+    "name": "Crème fraîche épaisse",
+    "category": "frais",
+    "synonyms": ["creme fraiche epaisse"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_fraiche_liquide",
+    "name": "Crème fraîche liquide",
+    "category": "frais",
+    "synonyms": ["creme liquide", "creme fraiche liquide"],
+    "source": "builtin"
+  },
+  {
+    "id": "beurre",
+    "name": "Beurre",
+    "category": "frais",
+    "synonyms": ["beurre doux"],
+    "source": "builtin"
+  },
+  {
+    "id": "beurre_demi_sel",
+    "name": "Beurre demi-sel",
+    "category": "frais",
+    "synonyms": ["beurre demi sel"],
+    "source": "builtin"
+  },
+  {
+    "id": "margarine",
+    "name": "Margarine",
+    "category": "frais",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "pesto_frais",
+    "name": "Pesto frais",
+    "category": "frais",
+    "synonyms": ["pesto"],
+    "source": "builtin"
+  },
+  {
+    "id": "levure_fraiche",
+    "name": "Levure fraîche",
+    "category": "frais",
+    "synonyms": ["levure fraiche", "levure de boulanger fraîche"],
+    "source": "builtin"
+  },
+    {
+    "id": "lait_entier",
+    "name": "Lait entier",
+    "category": "produits_laitiers",
+    "synonyms": ["lait"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_demi_ecreme",
+    "name": "Lait demi-écrémé",
+    "category": "produits_laitiers",
+    "synonyms": ["lait demi ecreme", "lait 1/2 écrémé"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_ecreme",
+    "name": "Lait écrémé",
+    "category": "produits_laitiers",
+    "synonyms": ["lait ecreme"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_sans_lactose",
+    "name": "Lait sans lactose",
+    "category": "produits_laitiers",
+    "synonyms": ["lait sans lactose"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_vegetal",
+    "name": "Lait végétal",
+    "category": "produits_laitiers",
+    "synonyms": ["boisson vegetale"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_amande",
+    "name": "Lait d'amande",
+    "category": "produits_laitiers",
+    "synonyms": ["boisson amande"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_soja",
+    "name": "Lait de soja",
+    "category": "produits_laitiers",
+    "synonyms": ["boisson soja"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_avoine",
+    "name": "Lait d'avoine",
+    "category": "produits_laitiers",
+    "synonyms": ["boisson avoine"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_nature",
+    "name": "Yaourt nature",
+    "category": "produits_laitiers",
+    "synonyms": ["yaourt", "yogourt nature"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_aux_fruits",
+    "name": "Yaourt aux fruits",
+    "category": "produits_laitiers",
+    "synonyms": ["yaourts aux fruits"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_grec",
+    "name": "Yaourt grec",
+    "category": "produits_laitiers",
+    "synonyms": ["yogourt grec"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_a_boire",
+    "name": "Yaourt à boire",
+    "category": "produits_laitiers",
+    "synonyms": ["yaourt boire"],
+    "source": "builtin"
+  },
+  {
+    "id": "fromage_blanc",
+    "name": "Fromage blanc",
+    "category": "produits_laitiers",
+    "synonyms": ["fromage blanc nature"],
+    "source": "builtin"
+  },
+  {
+    "id": "faisselle",
+    "name": "Faisselle",
+    "category": "produits_laitiers",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_suisses",
+    "name": "Petits-suisses",
+    "category": "produits_laitiers",
+    "synonyms": ["petit suisse", "petits suisses"],
+    "source": "builtin"
+  },
+  {
+    "id": "skyr",
+    "name": "Skyr",
+    "category": "produits_laitiers",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_dessert",
+    "name": "Crème dessert",
+    "category": "produits_laitiers",
+    "synonyms": ["creme dessert"],
+    "source": "builtin"
+  },
+  {
+    "id": "flan",
+    "name": "Flan",
+    "category": "produits_laitiers",
+    "synonyms": ["flan pâtissier"],
+    "source": "builtin"
+  },
+  {
+    "id": "riz_au_lait",
+    "name": "Riz au lait",
+    "category": "produits_laitiers",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "semoule_au_lait",
+    "name": "Semoule au lait",
+    "category": "produits_laitiers",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_fouettee",
+    "name": "Crème fouettée",
+    "category": "produits_laitiers",
+    "synonyms": ["chantilly"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_entière",
+    "name": "Crème entière",
+    "category": "produits_laitiers",
+    "synonyms": ["creme entiere"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_legere",
+    "name": "Crème légère",
+    "category": "produits_laitiers",
+    "synonyms": ["creme legere"],
+    "source": "builtin"
+  },
+  {
+    "id": "beurre_sale",
+    "name": "Beurre salé",
+    "category": "produits_laitiers",
+    "synonyms": ["beurre sale"],
+    "source": "builtin"
+  },
+  {
+    "id": "margarine_legere",
+    "name": "Margarine légère",
+    "category": "produits_laitiers",
+    "synonyms": ["margarine legere"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_ribot",
+    "name": "Lait ribot",
+    "category": "produits_laitiers",
+    "synonyms": ["lait fermenté"],
+    "source": "builtin"
+  },
+  {
+    "id": "kefir",
+    "name": "Kéfir",
+    "category": "produits_laitiers",
+    "synonyms": ["kefir"],
+    "source": "builtin"
+  },
+  {
+    "id": "dessert_soja",
+    "name": "Dessert au soja",
+    "category": "produits_laitiers",
+    "synonyms": ["dessert vegetal"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_coco",
+    "name": "Yaourt coco",
+    "category": "produits_laitiers",
+    "synonyms": ["yaourt à la noix de coco"],
+    "source": "builtin"
+  },
+  {
+    "id": "yaourt_bio",
+    "name": "Yaourt bio",
+    "category": "produits_laitiers",
+    "synonyms": ["yaourt biologique"],
+    "source": "builtin"
+  },
+    {
+    "id": "baguette",
+    "name": "Baguette",
+    "category": "boulangerie",
+    "synonyms": ["baguette de pain", "pain baguette"],
+    "source": "builtin"
+  },
+  {
+    "id": "baguette_tradition",
+    "name": "Baguette tradition",
+    "category": "boulangerie",
+    "synonyms": ["tradition", "baguette traditionnelle"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_de_campagne",
+    "name": "Pain de campagne",
+    "category": "boulangerie",
+    "synonyms": ["pain campagne"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_complet",
+    "name": "Pain complet",
+    "category": "boulangerie",
+    "synonyms": ["pain aux céréales complet"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_aux_cereales",
+    "name": "Pain aux céréales",
+    "category": "boulangerie",
+    "synonyms": ["pain céréales", "pain cereales"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_de_seigle",
+    "name": "Pain de seigle",
+    "category": "boulangerie",
+    "synonyms": ["pain seigle"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_de_mie",
+    "name": "Pain de mie",
+    "category": "boulangerie",
+    "synonyms": ["pain mie"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_burger",
+    "name": "Pain burger",
+    "category": "boulangerie",
+    "synonyms": ["pains burger", "bun"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_hot_dog",
+    "name": "Pain hot-dog",
+    "category": "boulangerie",
+    "synonyms": ["pain hot dog"],
+    "source": "builtin"
+  },
+  {
+    "id": "pains_au_chocolat",
+    "name": "Pains au chocolat",
+    "category": "boulangerie",
+    "synonyms": ["pain au chocolat", "chocolatine"],
+    "source": "builtin"
+  },
+  {
+    "id": "croissants",
+    "name": "Croissants",
+    "category": "boulangerie",
+    "synonyms": ["croissant"],
+    "source": "builtin"
+  },
+  {
+    "id": "pains_aux_raisins",
+    "name": "Pains aux raisins",
+    "category": "boulangerie",
+    "synonyms": ["pain aux raisins"],
+    "source": "builtin"
+  },
+  {
+    "id": "brioches",
+    "name": "Brioches",
+    "category": "boulangerie",
+    "synonyms": ["brioche"],
+    "source": "builtin"
+  },
+  {
+    "id": "brioche_tranchee",
+    "name": "Brioche tranchée",
+    "category": "boulangerie",
+    "synonyms": ["brioche tranchee"],
+    "source": "builtin"
+  },
+  {
+    "id": "chaussons_aux_pommes",
+    "name": "Chaussons aux pommes",
+    "category": "boulangerie",
+    "synonyms": ["chausson aux pommes"],
+    "source": "builtin"
+  },
+  {
+    "id": "madeleines",
+    "name": "Madeleines",
+    "category": "boulangerie",
+    "synonyms": ["madeleine"],
+    "source": "builtin"
+  },
+  {
+    "id": "quatre_quarts",
+    "name": "Quatre-quarts",
+    "category": "boulangerie",
+    "synonyms": ["quatre quart"],
+    "source": "builtin"
+  },
+  {
+    "id": "pain_de_sandwich",
+    "name": "Pain de mie sandwich",
+    "category": "boulangerie",
+    "synonyms": ["pain sandwich"],
+    "source": "builtin"
+  },
+  {
+    "id": "wraps",
+    "name": "Wraps",
+    "category": "boulangerie",
+    "synonyms": ["wrap", "galettes de blé"],
+    "source": "builtin"
+  },
+  {
+    "id": "tortillas",
+    "name": "Tortillas",
+    "category": "boulangerie",
+    "synonyms": ["tortilla"],
+    "source": "builtin"
+  },
