@@ -1530,3 +1530,696 @@
     "synonyms": ["tortilla"],
     "source": "builtin"
   },
+  {
+    "id": "riz",
+    "name": "Riz",
+    "category": "epicerie",
+    "synonyms": ["riz blanc"],
+    "source": "builtin"
+  },
+  {
+    "id": "riz_basmati",
+    "name": "Riz basmati",
+    "category": "epicerie",
+    "synonyms": ["basmati"],
+    "source": "builtin"
+  },
+  {
+    "id": "riz_complet",
+    "name": "Riz complet",
+    "category": "epicerie",
+    "synonyms": ["riz brun"],
+    "source": "builtin"
+  },
+  {
+    "id": "pates",
+    "name": "Pâtes",
+    "category": "epicerie",
+    "synonyms": ["pates alimentaires"],
+    "source": "builtin"
+  },
+  {
+    "id": "spaghetti",
+    "name": "Spaghetti",
+    "category": "epicerie",
+    "synonyms": ["spaghettis"],
+    "source": "builtin"
+  },
+  {
+    "id": "penne",
+    "name": "Penne",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "coquillettes",
+    "name": "Coquillettes",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "semoule",
+    "name": "Semoule",
+    "category": "epicerie",
+    "synonyms": ["semoule de couscous"],
+    "source": "builtin"
+  },
+  {
+    "id": "quinoa",
+    "name": "Quinoa",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "boulgour",
+    "name": "Boulgour",
+    "category": "epicerie",
+    "synonyms": ["bulgur"],
+    "source": "builtin"
+  },
+  {
+    "id": "farine",
+    "name": "Farine",
+    "category": "epicerie",
+    "synonyms": ["farine de blé"],
+    "source": "builtin"
+  },
+  {
+    "id": "farine_complete",
+    "name": "Farine complète",
+    "category": "epicerie",
+    "synonyms": ["farine complete"],
+    "source": "builtin"
+  },
+  {
+    "id": "maizena",
+    "name": "Maïzena",
+    "category": "epicerie",
+    "synonyms": ["fécule de maïs", "fecule de mais"],
+    "source": "builtin"
+  },
+  {
+    "id": "sucre",
+    "name": "Sucre",
+    "category": "epicerie",
+    "synonyms": ["sucre blanc"],
+    "source": "builtin"
+  },
+  {
+    "id": "sucre_glace",
+    "name": "Sucre glace",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "cassonade",
+    "name": "Cassonade",
+    "category": "epicerie",
+    "synonyms": ["sucre roux"],
+    "source": "builtin"
+  },
+  {
+    "id": "sel",
+    "name": "Sel",
+    "category": "epicerie",
+    "synonyms": ["sel fin"],
+    "source": "builtin"
+  },
+  {
+    "id": "gros_sel",
+    "name": "Gros sel",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "poivre",
+    "name": "Poivre",
+    "category": "epicerie",
+    "synonyms": ["poivre noir"],
+    "source": "builtin"
+  },
+  {
+    "id": "huile_olive",
+    "name": "Huile d'olive",
+    "category": "epicerie",
+    "synonyms": ["huile olive"],
+    "source": "builtin"
+  },
+  {
+    "id": "huile_tournesol",
+    "name": "Huile de tournesol",
+    "category": "epicerie",
+    "synonyms": ["huile tournesol"],
+    "source": "builtin"
+  },
+  {
+    "id": "vinaigre",
+    "name": "Vinaigre",
+    "category": "epicerie",
+    "synonyms": ["vinaigre blanc alimentaire"],
+    "source": "builtin"
+  },
+  {
+    "id": "vinaigre_balsamique",
+    "name": "Vinaigre balsamique",
+    "category": "epicerie",
+    "synonyms": ["balsamique"],
+    "source": "builtin"
+  },
+  {
+    "id": "moutarde",
+    "name": "Moutarde",
+    "category": "epicerie",
+    "synonyms": ["moutarde de dijon"],
+    "source": "builtin"
+  },
+  {
+    "id": "mayonnaise",
+    "name": "Mayonnaise",
+    "category": "epicerie",
+    "synonyms": ["mayo"],
+    "source": "builtin"
+  },
+  {
+    "id": "ketchup",
+    "name": "Ketchup",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "sauce_tomate",
+    "name": "Sauce tomate",
+    "category": "epicerie",
+    "synonyms": ["sauce tomates"],
+    "source": "builtin"
+  },
+  {
+    "id": "concentre_de_tomate",
+    "name": "Concentré de tomate",
+    "category": "epicerie",
+    "synonyms": ["concentre tomate"],
+    "source": "builtin"
+  },
+  {
+    "id": "tomates_en_boite",
+    "name": "Tomates en boîte",
+    "category": "epicerie",
+    "synonyms": ["tomates boite", "tomates concassées"],
+    "source": "builtin"
+  },
+  {
+    "id": "pois_chiches",
+    "name": "Pois chiches",
+    "category": "epicerie",
+    "synonyms": ["pois chiche"],
+    "source": "builtin"
+  },
+  {
+    "id": "lentilles",
+    "name": "Lentilles",
+    "category": "epicerie",
+    "synonyms": ["lentille"],
+    "source": "builtin"
+  },
+  {
+    "id": "haricots_blancs",
+    "name": "Haricots blancs",
+    "category": "epicerie",
+    "synonyms": ["haricot blanc"],
+    "source": "builtin"
+  },
+  {
+    "id": "haricots_rouges",
+    "name": "Haricots rouges",
+    "category": "epicerie",
+    "synonyms": ["haricot rouge"],
+    "source": "builtin"
+  },
+  {
+    "id": "mais_en_boite",
+    "name": "Maïs en boîte",
+    "category": "epicerie",
+    "synonyms": ["mais boite"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pois_en_boite",
+    "name": "Petits pois en boîte",
+    "category": "epicerie",
+    "synonyms": ["petits pois boite"],
+    "source": "builtin"
+  },
+  {
+    "id": "thon_en_conserve",
+    "name": "Thon en conserve",
+    "category": "epicerie",
+    "synonyms": ["thon conserve"],
+    "source": "builtin"
+  },
+  {
+    "id": "sardines_en_conserve",
+    "name": "Sardines en conserve",
+    "category": "epicerie",
+    "synonyms": ["sardines conserve"],
+    "source": "builtin"
+  },
+  {
+    "id": "bouillon_cube",
+    "name": "Bouillon cube",
+    "category": "epicerie",
+    "synonyms": ["cube bouillon", "bouillon"],
+    "source": "builtin"
+  },
+  {
+    "id": "fond_de_veau",
+    "name": "Fond de veau",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "herbes_de_provence",
+    "name": "Herbes de Provence",
+    "category": "epicerie",
+    "synonyms": ["herbes provence"],
+    "source": "builtin"
+  },
+  {
+    "id": "basilic_seche",
+    "name": "Basilic séché",
+    "category": "epicerie",
+    "synonyms": ["basilic"],
+    "source": "builtin"
+  },
+  {
+    "id": "curry",
+    "name": "Curry",
+    "category": "epicerie",
+    "synonyms": ["curry en poudre"],
+    "source": "builtin"
+  },
+  {
+    "id": "paprika",
+    "name": "Paprika",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "cannelle",
+    "name": "Cannelle",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "vanille",
+    "name": "Vanille",
+    "category": "epicerie",
+    "synonyms": ["vanille en poudre"],
+    "source": "builtin"
+  },
+  {
+    "id": "levure_chimique",
+    "name": "Levure chimique",
+    "category": "epicerie",
+    "synonyms": ["levure gateau", "poudre levante"],
+    "source": "builtin"
+  },
+  {
+    "id": "bicarbonate",
+    "name": "Bicarbonate de soude",
+    "category": "epicerie",
+    "synonyms": ["bicarbonate"],
+    "source": "builtin"
+  },
+  {
+    "id": "chocolat_noir",
+    "name": "Chocolat noir",
+    "category": "epicerie",
+    "synonyms": ["chocolat"],
+    "source": "builtin"
+  },
+  {
+    "id": "chocolat_au_lait",
+    "name": "Chocolat au lait",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_a_tartiner",
+    "name": "Pâte à tartiner",
+    "category": "epicerie",
+    "synonyms": ["pate tartiner"],
+    "source": "builtin"
+  },
+  {
+    "id": "miel",
+    "name": "Miel",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "confiture",
+    "name": "Confiture",
+    "category": "epicerie",
+    "synonyms": ["confiture de fruits"],
+    "source": "builtin"
+  },
+  {
+    "id": "compote",
+    "name": "Compote",
+    "category": "epicerie",
+    "synonyms": ["compotes"],
+    "source": "builtin"
+  },
+  {
+    "id": "cereales",
+    "name": "Céréales",
+    "category": "epicerie",
+    "synonyms": ["cereales petit dejeuner"],
+    "source": "builtin"
+  },
+  {
+    "id": "muesli",
+    "name": "Muesli",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "corn_flakes",
+    "name": "Corn flakes",
+    "category": "epicerie",
+    "synonyms": ["cornflakes"],
+    "source": "builtin"
+  },
+  {
+    "id": "biscuits",
+    "name": "Biscuits",
+    "category": "epicerie",
+    "synonyms": ["gateaux secs", "gâteaux secs"],
+    "source": "builtin"
+  },
+  {
+    "id": "biscuits_apero",
+    "name": "Biscuits apéritifs",
+    "category": "epicerie",
+    "synonyms": ["aperitif", "gateaux aperitif"],
+    "source": "builtin"
+  },
+  {
+    "id": "chips",
+    "name": "Chips",
+    "category": "epicerie",
+    "synonyms": [],
+    "source": "builtin"
+  },
+    {
+    "id": "amandes",
+    "name": "Amandes",
+    "category": "vrac",
+    "synonyms": ["amande"],
+    "source": "builtin"
+  },
+  {
+    "id": "noix",
+    "name": "Noix",
+    "category": "vrac",
+    "synonyms": ["noix cerneaux"],
+    "source": "builtin"
+  },
+  {
+    "id": "noisettes",
+    "name": "Noisettes",
+    "category": "vrac",
+    "synonyms": ["noisette"],
+    "source": "builtin"
+  },
+  {
+    "id": "pistaches",
+    "name": "Pistaches",
+    "category": "vrac",
+    "synonyms": ["pistache"],
+    "source": "builtin"
+  },
+  {
+    "id": "noix_de_cajou",
+    "name": "Noix de cajou",
+    "category": "vrac",
+    "synonyms": ["cajou"],
+    "source": "builtin"
+  },
+  {
+    "id": "cacahuetes",
+    "name": "Cacahuètes",
+    "category": "vrac",
+    "synonyms": ["cacahuete", "arachides", "arachide"],
+    "source": "builtin"
+  },
+  {
+    "id": "raisins_secs",
+    "name": "Raisins secs",
+    "category": "vrac",
+    "synonyms": ["raisin sec"],
+    "source": "builtin"
+  },
+  {
+    "id": "abricots_secs",
+    "name": "Abricots secs",
+    "category": "vrac",
+    "synonyms": ["abricot sec"],
+    "source": "builtin"
+  },
+  {
+    "id": "dattes",
+    "name": "Dattes",
+    "category": "vrac",
+    "synonyms": ["datte"],
+    "source": "builtin"
+  },
+  {
+    "id": "figues_seches",
+    "name": "Figues sèches",
+    "category": "vrac",
+    "synonyms": ["figue seche"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_de_tournesol",
+    "name": "Graines de tournesol",
+    "category": "vrac",
+    "synonyms": ["graines tournesol"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_de_courge",
+    "name": "Graines de courge",
+    "category": "vrac",
+    "synonyms": ["pepins de courge", "graines courge"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_de_chia",
+    "name": "Graines de chia",
+    "category": "vrac",
+    "synonyms": ["chia"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_de_lin",
+    "name": "Graines de lin",
+    "category": "vrac",
+    "synonyms": ["lin", "graines lin"],
+    "source": "builtin"
+  },
+  {
+    "id": "noix_de_coco_rape",
+    "name": "Noix de coco râpée",
+    "category": "vrac",
+    "synonyms": ["coco rapee", "coco râpé"],
+    "source": "builtin"
+  },
+    {
+    "id": "eau_plate",
+    "name": "Eau plate",
+    "category": "boissons",
+    "synonyms": ["eau", "eau minérale"],
+    "source": "builtin"
+  },
+  {
+    "id": "eau_gazeuse",
+    "name": "Eau gazeuse",
+    "category": "boissons",
+    "synonyms": ["eau pétillante", "eau gazeuse"],
+    "source": "builtin"
+  },
+  {
+    "id": "eau_petillante",
+    "name": "Eau pétillante",
+    "category": "boissons",
+    "synonyms": ["eau petillante"],
+    "source": "builtin"
+  },
+  {
+    "id": "jus_orange",
+    "name": "Jus d'orange",
+    "category": "boissons",
+    "synonyms": ["jus orange"],
+    "source": "builtin"
+  },
+  {
+    "id": "jus_pomme",
+    "name": "Jus de pomme",
+    "category": "boissons",
+    "synonyms": ["jus pomme"],
+    "source": "builtin"
+  },
+  {
+    "id": "jus_multifruits",
+    "name": "Jus multifruits",
+    "category": "boissons",
+    "synonyms": ["multifruits"],
+    "source": "builtin"
+  },
+  {
+    "id": "jus_ananas",
+    "name": "Jus d'ananas",
+    "category": "boissons",
+    "synonyms": ["jus ananas"],
+    "source": "builtin"
+  },
+  {
+    "id": "jus_raisin",
+    "name": "Jus de raisin",
+    "category": "boissons",
+    "synonyms": ["jus raisin"],
+    "source": "builtin"
+  },
+  {
+    "id": "nectar_abricot",
+    "name": "Nectar d'abricot",
+    "category": "boissons",
+    "synonyms": ["nectar abricot"],
+    "source": "builtin"
+  },
+  {
+    "id": "sirop_grenadine",
+    "name": "Sirop de grenadine",
+    "category": "boissons",
+    "synonyms": ["grenadine"],
+    "source": "builtin"
+  },
+  {
+    "id": "sirop_menthe",
+    "name": "Sirop de menthe",
+    "category": "boissons",
+    "synonyms": ["menthe", "sirop menthe"],
+    "source": "builtin"
+  },
+  {
+    "id": "sirop_citron",
+    "name": "Sirop de citron",
+    "category": "boissons",
+    "synonyms": ["sirop citron"],
+    "source": "builtin"
+  },
+  {
+    "id": "cola",
+    "name": "Cola",
+    "category": "boissons",
+    "synonyms": ["coca", "soda cola"],
+    "source": "builtin"
+  },
+  {
+    "id": "limonade",
+    "name": "Limonade",
+    "category": "boissons",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "orangeade",
+    "name": "Orangeade",
+    "category": "boissons",
+    "synonyms": [],
+    "source": "builtin"
+  },
+  {
+    "id": "the_glace",
+    "name": "Thé glacé",
+    "category": "boissons",
+    "synonyms": ["the glace"],
+    "source": "builtin"
+  },
+  {
+    "id": "boisson_energisante",
+    "name": "Boisson énergisante",
+    "category": "boissons",
+    "synonyms": ["energy drink", "boisson energy"],
+    "source": "builtin"
+  },
+  {
+    "id": "boisson_sportive",
+    "name": "Boisson sportive",
+    "category": "boissons",
+    "synonyms": ["boisson isotonique"],
+    "source": "builtin"
+  },
+  {
+    "id": "the",
+    "name": "Thé",
+    "category": "boissons",
+    "synonyms": ["the"],
+    "source": "builtin"
+  },
+  {
+    "id": "the_vert",
+    "name": "Thé vert",
+    "category": "boissons",
+    "synonyms": ["the vert"],
+    "source": "builtin"
+  },
+  {
+    "id": "infusion",
+    "name": "Infusion",
+    "category": "boissons",
+    "synonyms": ["tisane", "tisanes"],
+    "source": "builtin"
+  },
+  {
+    "id": "cafe",
+    "name": "Café",
+    "category": "boissons",
+    "synonyms": ["cafe"],
+    "source": "builtin"
+  },
+  {
+    "id": "cafe_moulu",
+    "name": "Café moulu",
+    "category": "boissons",
+    "synonyms": ["cafe moulu"],
+    "source": "builtin"
+  },
+  {
+    "id": "cafe_en_grains",
+    "name": "Café en grains",
+    "category": "boissons",
+    "synonyms": ["cafe grains"],
+    "source": "builtin"
+  },
+  {
+    "id": "chocolat_chaud",
+    "name": "Chocolat chaud",
+    "category": "boissons",
+    "synonyms": ["chocolat à boire", "chocolat a boire"],
+    "source": "builtin"
+  },
