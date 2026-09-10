@@ -2223,3 +2223,528 @@
     "synonyms": ["chocolat à boire", "chocolat a boire"],
     "source": "builtin"
   },
+  {
+    "id": "frites_surgeles",
+    "name": "Frites surgelées",
+    "category": "surgeles",
+    "synonyms": ["frites", "frites surgelees"],
+    "source": "builtin"
+  },
+  {
+    "id": "pommes_de_terre_rissoles",
+    "name": "Pommes de terre rissolées",
+    "category": "surgeles",
+    "synonyms": ["rissoles", "pommes de terre surgelees"],
+    "source": "builtin"
+  },
+  {
+    "id": "haricots_verts_surgeles",
+    "name": "Haricots verts surgelés",
+    "category": "surgeles",
+    "synonyms": ["haricots verts surgeles"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pois_surgeles",
+    "name": "Petits pois surgelés",
+    "category": "surgeles",
+    "synonyms": ["petits pois surgeles"],
+    "source": "builtin"
+  },
+  {
+    "id": "epinards_surgeles",
+    "name": "Épinards surgelés",
+    "category": "surgeles",
+    "synonyms": ["epinards surgeles"],
+    "source": "builtin"
+  },
+  {
+    "id": "brocolis_surgeles",
+    "name": "Brocolis surgelés",
+    "category": "surgeles",
+    "synonyms": ["brocoli surgele", "brocolis surgeles"],
+    "source": "builtin"
+  },
+  {
+    "id": "chou_fleur_surgeles",
+    "name": "Chou-fleur surgelé",
+    "category": "surgeles",
+    "synonyms": ["chou fleur surgele"],
+    "source": "builtin"
+  },
+  {
+    "id": "poelee_de_legumes",
+    "name": "Poêlée de légumes",
+    "category": "surgeles",
+    "synonyms": ["poelee legumes", "poêlée surgelée"],
+    "source": "builtin"
+  },
+  {
+    "id": "ratatouille_surgelee",
+    "name": "Ratatouille surgelée",
+    "category": "surgeles",
+    "synonyms": ["ratatouille surgelee"],
+    "source": "builtin"
+  },
+  {
+    "id": "legumes_grilles",
+    "name": "Légumes grillés",
+    "category": "surgeles",
+    "synonyms": ["legumes grilles surgeles"],
+    "source": "builtin"
+  },
+  {
+    "id": "pizza_surgelee",
+    "name": "Pizza surgelée",
+    "category": "surgeles",
+    "synonyms": ["pizza surgelee"],
+    "source": "builtin"
+  },
+  {
+    "id": "poisson_pane",
+    "name": "Poisson pané",
+    "category": "surgeles",
+    "synonyms": ["poisson pane", "poissons panes"],
+    "source": "builtin"
+  },
+  {
+    "id": "filets_de_poisson_surgeles",
+    "name": "Filets de poisson surgelés",
+    "category": "surgeles",
+    "synonyms": ["filet poisson surgele"],
+    "source": "builtin"
+  },
+  {
+    "id": "crevettes_surgeles",
+    "name": "Crevettes surgelées",
+    "category": "surgeles",
+    "synonyms": ["crevettes surgelee", "crevettes surgelees"],
+    "source": "builtin"
+  },
+  {
+    "id": "nuggets_de_poulet",
+    "name": "Nuggets de poulet",
+    "category": "surgeles",
+    "synonyms": ["nuggets", "nugget poulet"],
+    "source": "builtin"
+  },
+  {
+    "id": "cordons_bleus",
+    "name": "Cordons bleus",
+    "category": "surgeles",
+    "synonyms": ["cordon bleu"],
+    "source": "builtin"
+  },
+  {
+    "id": "steaks_haches_surgeles",
+    "name": "Steaks hachés surgelés",
+    "category": "surgeles",
+    "synonyms": ["steak hache surgele"],
+    "source": "builtin"
+  },
+  {
+    "id": "frites_de_patate_douce",
+    "name": "Frites de patate douce",
+    "category": "surgeles",
+    "synonyms": ["frites patate douce"],
+    "source": "builtin"
+  },
+  {
+    "id": "fruits_rouges_surgeles",
+    "name": "Fruits rouges surgelés",
+    "category": "surgeles",
+    "synonyms": ["fruits rouges surgeles", "fruits rouges"],
+    "source": "builtin"
+  },
+  {
+    "id": "mangue_surgelee",
+    "name": "Mangue surgelée",
+    "category": "surgeles",
+    "synonyms": ["mangue surgelee"],
+    "source": "builtin"
+  },
+    {
+    "id": "couches",
+    "name": "Couches",
+    "category": "bebe",
+    "synonyms": ["couche", "couches bébé", "couches bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "lingettes_bebe",
+    "name": "Lingettes bébé",
+    "category": "bebe",
+    "synonyms": ["lingettes bebe", "lingette bébé"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_infantile",
+    "name": "Lait infantile",
+    "category": "bebe",
+    "synonyms": ["lait bébé", "lait bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "lait_2e_age",
+    "name": "Lait 2e âge",
+    "category": "bebe",
+    "synonyms": ["lait 2eme age", "lait deuxième âge"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pots_legumes",
+    "name": "Petits pots légumes",
+    "category": "bebe",
+    "synonyms": ["petit pot légumes", "petits pots legumes"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pots_viande",
+    "name": "Petits pots viande",
+    "category": "bebe",
+    "synonyms": ["petit pot viande"],
+    "source": "builtin"
+  },
+  {
+    "id": "petits_pots_fruits",
+    "name": "Petits pots fruits",
+    "category": "bebe",
+    "synonyms": ["petit pot fruits", "compote bébé", "compote bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "cereales_bebe",
+    "name": "Céréales bébé",
+    "category": "bebe",
+    "synonyms": ["cereales bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "biscuits_bebe",
+    "name": "Biscuits bébé",
+    "category": "bebe",
+    "synonyms": ["biscuits bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "eau_bebe",
+    "name": "Eau pour bébé",
+    "category": "bebe",
+    "synonyms": ["eau bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "biberons",
+    "name": "Biberons",
+    "category": "bebe",
+    "synonyms": ["biberon"],
+    "source": "builtin"
+  },
+  {
+    "id": "tetines",
+    "name": "Tétines",
+    "category": "bebe",
+    "synonyms": ["tetine"],
+    "source": "builtin"
+  },
+  {
+    "id": "bavoirs",
+    "name": "Bavoirs",
+    "category": "bebe",
+    "synonyms": ["bavoir"],
+    "source": "builtin"
+  },
+  {
+    "id": "liniment",
+    "name": "Liniment",
+    "category": "bebe",
+    "synonyms": ["liniment bébé", "liniment bebe"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_change",
+    "name": "Crème pour le change",
+    "category": "bebe",
+    "synonyms": ["creme change", "crème bébé", "creme bebe"],
+    "source": "builtin"
+  },
+    {
+    "id": "shampoing",
+    "name": "Shampoing",
+    "category": "hygiene_beaute",
+    "synonyms": ["shampooing"],
+    "source": "builtin"
+  },
+  {
+    "id": "apres_shampoing",
+    "name": "Après-shampoing",
+    "category": "hygiene_beaute",
+    "synonyms": ["apres shampoing", "après shampooing"],
+    "source": "builtin"
+  },
+  {
+    "id": "gel_douche",
+    "name": "Gel douche",
+    "category": "hygiene_beaute",
+    "synonyms": ["gel douche"],
+    "source": "builtin"
+  },
+  {
+    "id": "savon",
+    "name": "Savon",
+    "category": "hygiene_beaute",
+    "synonyms": ["savon corps"],
+    "source": "builtin"
+  },
+  {
+    "id": "savon_mains",
+    "name": "Savon pour les mains",
+    "category": "hygiene_beaute",
+    "synonyms": ["savon mains"],
+    "source": "builtin"
+  },
+  {
+    "id": "dentifrice",
+    "name": "Dentifrice",
+    "category": "hygiene_beaute",
+    "synonyms": ["pate dentifrice"],
+    "source": "builtin"
+  },
+  {
+    "id": "brosse_a_dents",
+    "name": "Brosse à dents",
+    "category": "hygiene_beaute",
+    "synonyms": ["brosse dents"],
+    "source": "builtin"
+  },
+  {
+    "id": "fil_dentaire",
+    "name": "Fil dentaire",
+    "category": "hygiene_beaute",
+    "synonyms": ["fil dents"],
+    "source": "builtin"
+  },
+  {
+    "id": "bain_de_bouche",
+    "name": "Bain de bouche",
+    "category": "hygiene_beaute",
+    "synonyms": ["bain bouche"],
+    "source": "builtin"
+  },
+  {
+    "id": "deodorant",
+    "name": "Déodorant",
+    "category": "hygiene_beaute",
+    "synonyms": ["deodorant"],
+    "source": "builtin"
+  },
+  {
+    "id": "rasoirs",
+    "name": "Rasoirs",
+    "category": "hygiene_beaute",
+    "synonyms": ["rasoir"],
+    "source": "builtin"
+  },
+  {
+    "id": "mousse_a_raser",
+    "name": "Mousse à raser",
+    "category": "hygiene_beaute",
+    "synonyms": ["mousse rasage"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_hydratante",
+    "name": "Crème hydratante",
+    "category": "hygiene_beaute",
+    "synonyms": ["creme visage", "creme corps"],
+    "source": "builtin"
+  },
+  {
+    "id": "creme_solaire",
+    "name": "Crème solaire",
+    "category": "hygiene_beaute",
+    "synonyms": ["creme solaire", "protection solaire"],
+    "source": "builtin"
+  },
+  {
+    "id": "coton",
+    "name": "Coton",
+    "category": "hygiene_beaute",
+    "synonyms": ["coton hydrophile"],
+    "source": "builtin"
+  },
+  {
+    "id": "cotons_tiges",
+    "name": "Cotons-tiges",
+    "category": "hygiene_beaute",
+    "synonyms": ["coton tige", "cotons tiges"],
+    "source": "builtin"
+  },
+  {
+    "id": "disques_demaquillants",
+    "name": "Disques démaquillants",
+    "category": "hygiene_beaute",
+    "synonyms": ["disques coton", "cotons démaquillants"],
+    "source": "builtin"
+  },
+  {
+    "id": "mouchoirs",
+    "name": "Mouchoirs",
+    "category": "hygiene_beaute",
+    "synonyms": ["mouchoir"],
+    "source": "builtin"
+  },
+  {
+    "id": "papier_toilette",
+    "name": "Papier toilette",
+    "category": "hygiene_beaute",
+    "synonyms": ["papier wc", "papier toilettes"],
+    "source": "builtin"
+  },
+  {
+    "id": "serviettes_hygieniques",
+    "name": "Serviettes hygiéniques",
+    "category": "hygiene_beaute",
+    "synonyms": ["serviette hygiénique", "serviettes hygieniques"],
+    "source": "builtin"
+  },
+    {
+    "id": "lessive",
+    "name": "Lessive",
+    "category": "entretien",
+    "synonyms": ["lessive liquide", "lessive poudre"],
+    "source": "builtin"
+  },
+  {
+    "id": "adoucissant",
+    "name": "Adoucissant",
+    "category": "entretien",
+    "synonyms": ["adoucissant linge"],
+    "source": "builtin"
+  },
+  {
+    "id": "detachant",
+    "name": "Détachant",
+    "category": "entretien",
+    "synonyms": ["detachant linge"],
+    "source": "builtin"
+  },
+  {
+    "id": "javel",
+    "name": "Eau de Javel",
+    "category": "entretien",
+    "synonyms": ["javel"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_multi_usage",
+    "name": "Nettoyant multi-usages",
+    "category": "entretien",
+    "synonyms": ["nettoyant multi usage", "produit multi usages"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_vitres",
+    "name": "Nettoyant vitres",
+    "category": "entretien",
+    "synonyms": ["produit vitres", "lave vitres"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_sol",
+    "name": "Nettoyant sols",
+    "category": "entretien",
+    "synonyms": ["produit sol", "nettoyant sol"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_cuisine",
+    "name": "Nettoyant cuisine",
+    "category": "entretien",
+    "synonyms": ["produit cuisine", "degraissant cuisine"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_salle_de_bain",
+    "name": "Nettoyant salle de bain",
+    "category": "entretien",
+    "synonyms": ["produit salle de bain", "nettoyant douche"],
+    "source": "builtin"
+  },
+  {
+    "id": "nettoyant_wc",
+    "name": "Nettoyant WC",
+    "category": "entretien",
+    "synonyms": ["produit wc", "gel wc"],
+    "source": "builtin"
+  },
+  {
+    "id": "pastilles_lave_vaisselle",
+    "name": "Pastilles lave-vaisselle",
+    "category": "entretien",
+    "synonyms": ["tablettes lave vaisselle", "pastilles lave vaisselle"],
+    "source": "builtin"
+  },
+  {
+    "id": "liquide_rincage",
+    "name": "Liquide de rinçage",
+    "category": "entretien",
+    "synonyms": ["liquide rincage", "produit rincage"],
+    "source": "builtin"
+  },
+  {
+    "id": "sel_lave_vaisselle",
+    "name": "Sel lave-vaisselle",
+    "category": "entretien",
+    "synonyms": ["sel lave vaisselle"],
+    "source": "builtin"
+  },
+  {
+    "id": "liquide_vaisselle",
+    "name": "Liquide vaisselle",
+    "category": "entretien",
+    "synonyms": ["liquide vaiselle", "produit vaisselle"],
+    "source": "builtin"
+  },
+  {
+    "id": "eponge",
+    "name": "Éponge",
+    "category": "entretien",
+    "synonyms": ["eponges", "eponge vaisselle"],
+    "source": "builtin"
+  },
+  {
+    "id": "eponges_grattantes",
+    "name": "Éponges grattantes",
+    "category": "entretien",
+    "synonyms": ["eponge grattante", "tampon a gratter"],
+    "source": "builtin"
+  },
+  {
+    "id": "gants_menage",
+    "name": "Gants de ménage",
+    "category": "entretien",
+    "synonyms": ["gants menage", "gants nettoyage"],
+    "source": "builtin"
+  },
+  {
+    "id": "sacs_poubelle",
+    "name": "Sacs poubelle",
+    "category": "entretien",
+    "synonyms": ["sac poubelle", "sacs poubelles"],
+    "source": "builtin"
+  },
+  {
+    "id": "tablettes_lave_linge",
+    "name": "Tablettes lave-linge",
+    "category": "entretien",
+    "synonyms": ["capsules lessive", "tablettes lessive"],
+    "source": "builtin"
+  },
+  {
+    "id": "desodorisant",
+    "name": "Désodorisant",
+    "category": "entretien",
+    "synonyms": ["desodorisant maison", "désodorisant intérieur"],
+    "source": "builtin"
+  },
