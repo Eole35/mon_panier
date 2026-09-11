@@ -2748,3 +2748,214 @@
     "synonyms": ["desodorisant maison", "désodorisant intérieur"],
     "source": "builtin"
   },
+  {
+    "id": "ampoules",
+    "name": "Ampoules",
+    "category": "maison",
+    "synonyms": ["ampoule", "ampoules électriques"],
+    "source": "builtin"
+  },
+  {
+    "id": "piles_aa",
+    "name": "Piles AA",
+    "category": "maison",
+    "synonyms": ["pile aa", "piles lr6", "lr6"],
+    "source": "builtin"
+  },
+  {
+    "id": "piles_aaa",
+    "name": "Piles AAA",
+    "category": "maison",
+    "synonyms": ["pile aaa", "piles lr03", "lr03"],
+    "source": "builtin"
+  },
+  {
+    "id": "bougies",
+    "name": "Bougies",
+    "category": "maison",
+    "synonyms": ["bougie"],
+    "source": "builtin"
+  },
+  {
+    "id": "allumettes",
+    "name": "Allumettes",
+    "category": "maison",
+    "synonyms": ["allumette"],
+    "source": "builtin"
+  },
+  {
+    "id": "sacs_congelation",
+    "name": "Sacs de congélation",
+    "category": "maison",
+    "synonyms": ["sac congelation", "sacs congélation"],
+    "source": "builtin"
+  },
+  {
+    "id": "papier_aluminium",
+    "name": "Papier aluminium",
+    "category": "maison",
+    "synonyms": ["alu", "papier alu"],
+    "source": "builtin"
+  },
+  {
+    "id": "film_alimentaire",
+    "name": "Film alimentaire",
+    "category": "maison",
+    "synonyms": ["film plastique", "film alimentaire"],
+    "source": "builtin"
+  },
+  {
+    "id": "papier_cuisson",
+    "name": "Papier cuisson",
+    "category": "maison",
+    "synonyms": ["papier sulfurisé", "papier cuisson"],
+    "source": "builtin"
+  },
+  {
+    "id": "boites_conservation",
+    "name": "Boîtes de conservation",
+    "category": "maison",
+    "synonyms": ["boite conservation", "boites hermetiques"],
+    "source": "builtin"
+  },
+    {
+    "id": "terreau",
+    "name": "Terreau",
+    "category": "jardin",
+    "synonyms": ["terreau universel"],
+    "source": "builtin"
+  },
+  {
+    "id": "engrais",
+    "name": "Engrais",
+    "category": "jardin",
+    "synonyms": ["engrais plantes"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_fleurs",
+    "name": "Graines de fleurs",
+    "category": "jardin",
+    "synonyms": ["graines fleurs"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_legumes",
+    "name": "Graines de légumes",
+    "category": "jardin",
+    "synonyms": ["graines legumes", "semences légumes"],
+    "source": "builtin"
+  },
+  {
+    "id": "plants_tomates",
+    "name": "Plants de tomates",
+    "category": "jardin",
+    "synonyms": ["plant tomate", "plants tomates"],
+    "source": "builtin"
+  },
+  {
+    "id": "pots_fleurs",
+    "name": "Pots de fleurs",
+    "category": "jardin",
+    "synonyms": ["pot fleurs", "pots plantes"],
+    "source": "builtin"
+  },
+  {
+    "id": "paillage",
+    "name": "Paillage",
+    "category": "jardin",
+    "synonyms": ["paillis"],
+    "source": "builtin"
+  },
+  {
+    "id": "tuteurs",
+    "name": "Tuteurs",
+    "category": "jardin",
+    "synonyms": ["tuteur plante"],
+    "source": "builtin"
+  },
+  {
+    "id": "ficelle_jardin",
+    "name": "Ficelle de jardin",
+    "category": "jardin",
+    "synonyms": ["ficelle jardin", "ficelle"],
+    "source": "builtin"
+  },
+  {
+    "id": "gants_jardinage",
+    "name": "Gants de jardinage",
+    "category": "jardin",
+    "synonyms": ["gants jardin", "gants jardinage"],
+    "source": "builtin"
+  },
+    {
+    "id": "croquettes_chien",
+    "name": "Croquettes pour chien",
+    "category": "animaux",
+    "synonyms": ["croquettes chien", "croquettes chiens"],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_chien",
+    "name": "Pâtée pour chien",
+    "category": "animaux",
+    "synonyms": ["patee chien", "pâtée chiens"],
+    "source": "builtin"
+  },
+  {
+    "id": "croquettes_chat",
+    "name": "Croquettes pour chat",
+    "category": "animaux",
+    "synonyms": ["croquettes chat", "croquettes chats"],
+    "source": "builtin"
+  },
+  {
+    "id": "pate_chat",
+    "name": "Pâtée pour chat",
+    "category": "animaux",
+    "synonyms": ["patee chat", "pâtée chats"],
+    "source": "builtin"
+  },
+  {
+    "id": "litiere_chat",
+    "name": "Litière pour chat",
+    "category": "animaux",
+    "synonyms": ["litiere chat", "litière"],
+    "source": "builtin"
+  },
+  {
+    "id": "foin",
+    "name": "Foin",
+    "category": "animaux",
+    "synonyms": ["foin animaux"],
+    "source": "builtin"
+  },
+  {
+    "id": "graines_oiseaux",
+    "name": "Graines pour oiseaux",
+    "category": "animaux",
+    "synonyms": ["graines oiseaux", "nourriture oiseaux"],
+    "source": "builtin"
+  },
+  {
+    "id": "friandises_chien",
+    "name": "Friandises pour chien",
+    "category": "animaux",
+    "synonyms": ["friandises chien", "gateries chien"],
+    "source": "builtin"
+  },
+  {
+    "id": "friandises_chat",
+    "name": "Friandises pour chat",
+    "category": "animaux",
+    "synonyms": ["friandises chat", "gateries chat"],
+    "source": "builtin"
+  },
+  {
+    "id": "sacs_crottes",
+    "name": "Sacs à crottes",
+    "category": "animaux",
+    "synonyms": ["sacs crottes", "sac a crottes"],
+    "source": "builtin"
+  }
+  ]
