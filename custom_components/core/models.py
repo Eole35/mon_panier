@@ -6,6 +6,8 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
 
+from ..const import SOURCE_PERSONAL, UNIT_PIECE
+
 
 @dataclass
 class Product:
@@ -15,7 +17,7 @@ class Product:
     name: str
     category: str
     synonyms: list[str] = field(default_factory=list)
-    source: str = "personal"
+    source: str = SOURCE_PERSONAL
     favorite: bool = False
     purchase_count: int = 0
     last_purchased: datetime | None = None
@@ -29,7 +31,7 @@ class ListItem:
     id: str
     product_id: str
     quantity: float = 1
-    unit: str = "piece"
+    unit: str = UNIT_PIECE
     bio: bool = False
     promotion: bool = False
     large_quantity: bool = False
