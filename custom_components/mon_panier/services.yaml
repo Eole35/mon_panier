@@ -1,0 +1,184 @@
+add_item:
+  name: Ajouter un article
+  description: Ajoute un article à la liste d'un magasin.
+  fields:
+    store:
+      name: Magasin
+      description: Identifiant du magasin.
+      required: true
+      selector:
+        text:
+    product:
+      name: Produit
+      description: Nom ou identifiant du produit.
+      required: false
+      selector:
+        text:
+    text:
+      name: Texte
+      description: Texte libre à analyser, par exemple "5 bananes".
+      required: false
+      selector:
+        text:
+    quantity:
+      name: Quantité
+      description: Quantité de l'article.
+      required: false
+      default: 1
+      selector:
+        number:
+          min: 0.01
+          step: 0.01
+          mode: box
+    unit:
+      name: Unité
+      description: Unité de l'article.
+      required: false
+      selector:
+        text:
+
+remove_item:
+  name: Supprimer un article
+  description: Supprime un article de la liste.
+  fields:
+    store:
+      name: Magasin
+      description: Identifiant du magasin.
+      required: true
+      selector:
+        text:
+    item_id:
+      name: Article
+      description: Identifiant de l'article.
+      required: true
+      selector:
+        text:
+
+update_item:
+  name: Modifier un article
+  description: Modifie les propriétés d'un article.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+    item_id:
+      name: Article
+      required: true
+      selector:
+        text:
+    quantity:
+      name: Quantité
+      required: false
+      selector:
+        number:
+          min: 0.01
+          step: 0.01
+          mode: box
+    unit:
+      name: Unité
+      required: false
+      selector:
+        text:
+    bio:
+      name: Bio
+      required: false
+      selector:
+        boolean:
+    promotion:
+      name: Promotion
+      required: false
+      selector:
+        boolean:
+    large_quantity:
+      name: Grand volume
+      required: false
+      selector:
+        boolean:
+
+complete_item:
+  name: Marquer comme acheté
+  description: Marque un article comme acheté.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+    item_id:
+      name: Article
+      required: true
+      selector:
+        text:
+
+uncomplete_item:
+  name: Remettre dans la liste
+  description: Remet un article acheté dans la liste active.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+    item_id:
+      name: Article
+      required: true
+      selector:
+        text:
+
+clear_list:
+  name: Vider la liste
+  description: Supprime tous les articles de la liste du magasin.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+
+delete_list:
+  name: Supprimer la liste
+  description: Supprime la liste associée au magasin.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+
+create_store:
+  name: Créer un magasin
+  description: Crée un nouveau magasin et sa liste.
+  fields:
+    name:
+      name: Nom
+      description: Nom du magasin.
+      required: true
+      selector:
+        text:
+
+rename_store:
+  name: Renommer un magasin
+  description: Modifie le nom d'un magasin.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
+    name:
+      name: Nouveau nom
+      required: true
+      selector:
+        text:
+
+delete_store:
+  name: Supprimer un magasin
+  description: Supprime un magasin et sa liste.
+  fields:
+    store:
+      name: Magasin
+      required: true
+      selector:
+        text:
