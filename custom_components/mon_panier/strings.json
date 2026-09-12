@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mon Panier",
+        "description": "Configurez votre espace Mon Panier.",
+        "data": {
+          "name": "Nom du magasin"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options Mon Panier",
+        "data": {}
+      }
+    }
+  }
+}
