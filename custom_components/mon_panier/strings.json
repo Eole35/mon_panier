@@ -3,18 +3,29 @@
     "step": {
       "user": {
         "title": "Mon Panier",
-        "description": "Configurez votre espace Mon Panier.",
-        "data": {
-          "name": "Nom du magasin"
-        }
+        "description": "Configurez Mon Panier. Les magasins et leurs listes seront ensuite gérés directement dans l'intégration."
       }
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Options Mon Panier",
-        "data": {}
+        "title": "Configuration de Mon Panier",
+        "description": "Configurez l'utilisation d'Open Food Facts pour la recherche de produits et le scan des codes-barres.",
+        "data": {
+          "off_enabled": "Activer Open Food Facts",
+          "off_url": "URL de l'API Open Food Facts",
+          "off_country": "Pays",
+          "off_language": "Langue",
+          "off_user_agent": "User-Agent"
+        },
+        "data_description": {
+          "off_enabled": "Utilise Open Food Facts lorsque le produit n'est pas trouvé dans le référentiel local.",
+          "off_url": "Serveur Open Food Facts utilisé par Mon Panier.",
+          "off_country": "Code pays ISO à deux lettres, par exemple fr.",
+          "off_language": "Code langue ISO à deux lettres, par exemple fr.",
+          "off_user_agent": "Identifiant envoyé à Open Food Facts pour identifier Mon Panier."
+        }
       }
     }
   }
