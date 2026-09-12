@@ -46,7 +46,12 @@ class BarcodeScanner:
     @staticmethod
     def normalize(value: str) -> str:
         """Normalize a scanned barcode."""
-        return "".join(character for character in value if character.isdigit())
+        value = value.strip()
+
+        for separator in (" ", "-", "\t", "\n", "\r"):
+            value = value.replace(separator, "")
+
+        return value
 
     @staticmethod
     def detect_format(value: str) -> str | None:
