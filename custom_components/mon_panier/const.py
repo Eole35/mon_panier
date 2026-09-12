@@ -7,6 +7,19 @@ VERSION = "0.1.0"
 # Configuration
 CONF_STORE = "store"
 
+# Open Food Facts configuration
+CONF_OFF_ENABLED = "off_enabled"
+CONF_OFF_URL = "off_url"
+CONF_OFF_COUNTRY = "off_country"
+CONF_OFF_LANGUAGE = "off_language"
+CONF_OFF_USER_AGENT = "off_user_agent"
+
+DEFAULT_OFF_ENABLED = True
+DEFAULT_OFF_URL = "https://world.openfoodfacts.org"
+DEFAULT_OFF_COUNTRY = "fr"
+DEFAULT_OFF_LANGUAGE = "fr"
+DEFAULT_OFF_USER_AGENT = "MonPanier/0.1.0 (https://github.com/Eole35/mon_panier)"
+
 # Defaults
 DEFAULT_STORE_NAME = "Mon magasin"
 
