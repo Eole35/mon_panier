@@ -25,14 +25,14 @@ def create_service(
     learning = LearningEngine()
     scanner = BarcodeScanner()
 
-    return ProductService(
+     return ProductService(
         repository=repository,
         catalog=catalog,
         learning=learning,
         barcode_scanner=scanner,
+        category_mapper=CategoryMapper(),
         openfoodfacts=openfoodfacts,
     )
-
 
 def test_search_finds_builtin_product() -> None:
     """Builtin products should be searchable."""
