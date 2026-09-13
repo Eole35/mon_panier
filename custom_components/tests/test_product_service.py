@@ -13,7 +13,7 @@ from custom_components.mon_panier.core.repository import MonPanierRepository
 from custom_components.mon_panier.integrations.openfoodfacts import (
     OpenFoodFactsProduct,
 )
-
+from custom_components.mon_panier.core.category_mapper import CategoryMapper
 
 def create_service(
     products: list[Product] | None = None,
