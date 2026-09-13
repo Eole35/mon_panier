@@ -5,12 +5,16 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from ..barcode import BarcodeScanner
-from ..const import SOURCE_BUILTIN, SOURCE_OPENFOODFACTS
+from ..const import (
+    SOURCE_BUILTIN,
+    SOURCE_OPENFOODFACTS,
+)
 from ..integrations.openfoodfacts import (
     OpenFoodFactsClient,
     OpenFoodFactsProduct,
 )
 from .catalog import ProductCatalog
+from .category_mapper import CategoryMapper
 from .learning import LearningEngine
 from .models import Product
 from .repository import MonPanierRepository
@@ -24,6 +28,7 @@ class ProductLookupResult:
     product: Product | None = None
     external_product: OpenFoodFactsProduct | None = None
     source: str | None = None
+    category: str | None = None
     requires_confirmation: bool = False
 
 
@@ -36,6 +41,7 @@ class ProductService:
         catalog: ProductCatalog,
         learning: LearningEngine,
         barcode_scanner: BarcodeScanner,
+        category_mapper: CategoryMapper,
         openfoodfacts: OpenFoodFactsClient | None = None,
     ) -> None:
         """Initialize the product service."""
@@ -43,25 +49,33 @@ class ProductService:
         self.catalog = catalog
         self.learning = learning
         self.barcode_scanner = barcode_scanner
+        self.category_mapper = category_mapper
         self.openfoodfacts = openfoodfacts
 
-    def search(self, query: str, *, limit: int = 5) -> list[Product]:
+    def search(
+        self,
+        query: str,
+        *,
+        limit: int = 5,
+    ) -> list[Product]:
         """Search personal and builtin products."""
-        products: list[Product] = []
+        personal_products = self.repository.get_products()
 
-        # Personal products first.
-        products.extend(self.repository.get_products())
-
-        # Add builtin products without duplicating personal products.
         personal_ids = {
-            product.id for product in self.repository.get_products()
+            product.id
+            for product in personal_products
         }
 
-        products.extend(
+        builtin_products = [
             product
             for product in self.catalog.get_products()
             if product.id not in personal_ids
-        )
+        ]
+
+        products = [
+            *personal_products,
+            *builtin_products,
+        ]
 
         return ProductSearch(products).search(
             query,
@@ -72,13 +86,15 @@ class ProductService:
         self,
         barcode: str,
     ) -> ProductLookupResult:
-        """Find a product by barcode in the local databases."""
+        """Find a product by barcode in local databases."""
         parsed_barcode = self.barcode_scanner.parse(barcode)
 
         if parsed_barcode is None:
             return ProductLookupResult()
 
-        product = self._find_local_barcode(parsed_barcode.value)
+        product = self._find_local_barcode(
+            parsed_barcode.value,
+        )
 
         if product is None:
             return ProductLookupResult()
@@ -86,6 +102,7 @@ class ProductService:
         return ProductLookupResult(
             product=product,
             source=product.source,
+            category=product.category,
             requires_confirmation=False,
         )
 
@@ -100,22 +117,28 @@ class ProductService:
             return ProductLookupResult()
 
         # 1. Personal products.
-        product = self._find_personal_barcode(parsed_barcode.value)
+        product = self._find_personal_barcode(
+            parsed_barcode.value,
+        )
 
         if product is not None:
             return ProductLookupResult(
                 product=product,
                 source=product.source,
+                category=product.category,
                 requires_confirmation=False,
             )
 
         # 2. Builtin catalog.
-        product = self.catalog.find_by_barcode(parsed_barcode.value)
+        product = self.catalog.find_by_barcode(
+            parsed_barcode.value,
+        )
 
         if product is not None:
             return ProductLookupResult(
                 product=product,
                 source=SOURCE_BUILTIN,
+                category=product.category,
                 requires_confirmation=False,
             )
 
@@ -124,15 +147,20 @@ class ProductService:
             return ProductLookupResult()
 
         external_product = await self.openfoodfacts.get_product(
-            parsed_barcode.value
+            parsed_barcode.value,
         )
 
         if external_product is None:
             return ProductLookupResult()
 
+        category = self.category_mapper.map_categories(
+            external_product.categories,
+        )
+
         return ProductLookupResult(
             external_product=external_product,
             source=SOURCE_OPENFOODFACTS,
+            category=category,
             requires_confirmation=True,
         )
 
@@ -142,9 +170,13 @@ class ProductService:
         category: str,
     ) -> Product:
         """Memorize a validated Open Food Facts product locally."""
-        product_id = self._create_product_id(external_product.name)
+        product_id = self._create_product_id(
+            external_product.name,
+        )
 
-        existing = self.repository.get_product(product_id)
+        existing = self.repository.get_product(
+            product_id,
+        )
 
         if existing is not None:
             self.repository.add_barcode(
@@ -197,12 +229,16 @@ class ProductService:
         barcode: str,
     ) -> Product | None:
         """Find a barcode in personal or builtin products."""
-        product = self._find_personal_barcode(barcode)
+        product = self._find_personal_barcode(
+            barcode,
+        )
 
         if product is not None:
             return product
 
-        return self.catalog.find_by_barcode(barcode)
+        return self.catalog.find_by_barcode(
+            barcode,
+        )
 
     @staticmethod
     def _create_product_id(name: str) -> str:
