@@ -125,7 +125,7 @@ class ShoppingInputParser:
 
                 # Remove common French connector after packaging units.
                 remaining = re.sub(
-                    r"^(?:de|d'|du|des)\s+",
+                    r"^(?:de\s+|d['’]\s*|du\s+|des\s+)",
                     "",
                     remaining,
                     flags=re.IGNORECASE,
@@ -176,6 +176,12 @@ class ShoppingInputParser:
                 return unit, match.end()
 
         return None
+
+    @staticmethod
+    def _parse_number(value: str) -> float:
+        """Convert a French decimal number to a float."""
+        return float(value.replace(",", "."))
+
 
     @staticmethod
     def _parse_number(value: str) -> float:
