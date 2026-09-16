@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 
@@ -48,6 +49,20 @@ class BarcodeScanner:
         """Normalize a scanned barcode."""
         value = value.strip()
 
+        # Accept labelled barcodes such as:
+        # EAN-13: 3017620422003
+        # EAN-8: 12345670
+        # UPC-A: 123456789012
+        labelled_match = re.match(
+            r"^(?:EAN[-\s]?(?:8|13)|UPC[-\s]?A)\s*:\s*(\d+)$",
+            value,
+            flags=re.IGNORECASE,
+        )
+
+        if labelled_match:
+            return labelled_match.group(1)
+
+        # Accept separators commonly introduced by barcode scanners.
         for separator in (" ", "-", "\t", "\n", "\r"):
             value = value.replace(separator, "")
 
@@ -68,6 +83,10 @@ class BarcodeScanner:
     def is_valid_check_digit(value: str) -> bool:
         """Validate an EAN/UPC check digit."""
         if len(value) not in SUPPORTED_LENGTHS:
+            return False
+
+        # Reject anything that is not strictly numeric.
+        if not value.isdigit():
             return False
 
         digits = [int(character) for character in value]
