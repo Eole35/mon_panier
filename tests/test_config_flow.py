@@ -5,7 +5,6 @@ from unittest.mock import patch
 import pytest
 
 from homeassistant import config_entries
-from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
 
 from custom_components.mon_panier.const import (
@@ -22,6 +21,8 @@ from custom_components.mon_panier.const import (
     DOMAIN,
 )
 
+pytestmark = pytest.mark.asyncio
+
 
 @pytest.mark.usefixtures("enable_custom_integrations")
 async def test_user_flow_creates_entry(hass: HomeAssistant) -> None:
@@ -31,7 +32,7 @@ async def test_user_flow_creates_entry(hass: HomeAssistant) -> None:
         context={"source": config_entries.SOURCE_USER},
     )
 
-    assert result["type"] is config_entries.FlowResultType.FORM
+    assert result["type"] == "form"
     assert result["step_id"] == "user"
 
     result = await hass.config_entries.flow.async_configure(
@@ -39,7 +40,7 @@ async def test_user_flow_creates_entry(hass: HomeAssistant) -> None:
         user_input={},
     )
 
-    assert result["type"] is config_entries.FlowResultType.CREATE_ENTRY
+    assert result["type"] == "create_entry"
     assert result["title"] == "Mon Panier"
     assert result["data"] == {}
 
@@ -60,17 +61,14 @@ async def test_options_flow_uses_defaults(hass: HomeAssistant) -> None:
         subentries_data={},
     )
 
-    with patch.object(
-        hass.config_entries,
-        "async_entries",
-        return_value=[entry],
-    ):
-        result = await hass.config_entries.options.async_init(
-            entry.entry_id,
-            context={"source": "init"},
-        )
+    await hass.config_entries.async_add(entry)
 
-    assert result["type"] is config_entries.FlowResultType.FORM
+    result = await hass.config_entries.options.async_init(
+        entry.entry_id,
+        context={"source": "init"},
+    )
+
+    assert result["type"] == "form"
     assert result["step_id"] == "init"
 
     schema = result["data_schema"]
@@ -98,27 +96,36 @@ async def test_options_flow_saves_values(hass: HomeAssistant) -> None:
         subentries_data={},
     )
 
-    hass.config_entries._entries.append(entry)
+    await hass.config_entries.async_add(entry)
 
     result = await hass.config_entries.options.async_init(
         entry.entry_id,
         context={"source": "init"},
     )
 
-    assert result["type"] is config_entries.FlowResultType.FORM
+    assert result["type"] == "form"
 
     user_input = {
         CONF_OFF_ENABLED: False,
-        CONF_OFF_URL: "https://example.test",
+        CONF_OFF_URL: "https://example.com",
         CONF_OFF_COUNTRY: "be",
-        CONF_OFF_LANGUAGE: "fr",
-        CONF_OFF_USER_AGENT: "MonPanier/test",
+        CONF_OFF_LANGUAGE: "nl",
+        CONF_OFF_USER_AGENT: "MonPanier/Test",
     }
 
-    result = await hass.config_entries.options.async_configure(
-        result["flow_id"],
-        user_input=user_input,
-    )
+    with patch.object(
+        hass.config_entries,
+        "async_update_entry",
+    ) as mock_update_entry:
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"],
+            user_input=user_input,
+        )
 
-    assert result["type"] is config_entries.FlowResultType.CREATE_ENTRY
-    assert result["data"] == user_input
+    assert result["type"] == "create_entry"
+    mock_update_entry.assert_called_once()
+
+    call = mock_update_entry.call_args
+
+    assert call.args[0] is entry
+    assert call.kwargs["options"] == user_input
