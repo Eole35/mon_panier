@@ -22,6 +22,12 @@ class Product:
     purchase_count: int = 0
     last_purchased: datetime | None = None
     barcodes: list[str] = field(default_factory=list)
+    brand: str | None = None
+    quantity: str | None = None
+    product_quantity: float | None = None
+    product_quantity_unit: str | None = None
+    packaging: str | None = None
+    packaging_tags: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -101,8 +107,117 @@ class MonPanierData:
     personal_rules: list[PersonalRule] = field(default_factory=list)
     category_overrides: list[CategoryOverride] = field(default_factory=list)
 
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> MonPanierData:
+        """Create data from a dictionary."""
+
+        stores = [
+            Store(
+                id=store["id"],
+                name=store["name"],
+                category_order=store.get("category_order", []),
+            )
+            for store in data.get("stores", [])
+        ]
+
+        lists = [
+            ShoppingList(
+                id=shopping_list["id"],
+                store_id=shopping_list["store_id"],
+                items=[
+                    ListItem(
+                        id=item["id"],
+                        product_id=item["product_id"],
+                        quantity=item.get("quantity", 1),
+                        unit=item.get("unit", UNIT_PIECE),
+                        bio=item.get("bio", False),
+                        promotion=item.get("promotion", False),
+                        large_quantity=item.get("large_quantity", False),
+                        checked=item.get("checked", False),
+                        created_at=(
+                            datetime.fromisoformat(item["created_at"])
+                            if item.get("created_at")
+                            else None
+                        ),
+                    )
+                    for item in shopping_list.get("items", [])
+                ],
+            )
+            for shopping_list in data.get("lists", [])
+        ]
+
+        products = [
+            Product(
+                id=product["id"],
+                name=product["name"],
+                category=product["category"],
+                synonyms=product.get("synonyms", []),
+                source=product.get("source", SOURCE_PERSONAL),
+                favorite=product.get("favorite", False),
+                purchase_count=product.get("purchase_count", 0),
+                last_purchased=(
+                    datetime.fromisoformat(product["last_purchased"])
+                    if product.get("last_purchased")
+                    else None
+                ),
+                barcodes=product.get("barcodes", []),
+                brand=product.get("brand"),
+                quantity=product.get("quantity"),
+                product_quantity=product.get("product_quantity"),
+                product_quantity_unit=product.get(
+                    "product_quantity_unit"
+                ),
+                packaging=product.get("packaging"),
+                packaging_tags=product.get("packaging_tags", []),
+            )
+            for product in data.get("products", [])
+        ]
+
+        history = [
+            HistoryEntry(
+                id=entry["id"],
+                date=datetime.fromisoformat(entry["date"]),
+                store_id=entry["store_id"],
+                product_id=entry["product_id"],
+                product_name=entry["product_name"],
+                quantity=entry["quantity"],
+                unit=entry["unit"],
+                bio=entry.get("bio", False),
+                promotion=entry.get("promotion", False),
+                large_quantity=entry.get("large_quantity", False),
+            )
+            for entry in data.get("history", [])
+        ]
+
+        personal_rules = [
+            PersonalRule(
+                input_text=rule["input_text"],
+                product_id=rule["product_id"],
+            )
+            for rule in data.get("personal_rules", [])
+        ]
+
+        category_overrides = [
+            CategoryOverride(
+                product_id=override["product_id"],
+                category=override["category"],
+            )
+            for override in data.get("category_overrides", [])
+        ]
+
+        return cls(
+            schema_version=data.get("schema_version", 1),
+            stores=stores,
+            lists=lists,
+            products=products,
+            history=history,
+            personal_rules=personal_rules,
+            category_overrides=category_overrides,
+        )
+
     def to_dict(self) -> dict[str, Any]:
         """Convert the data to a dictionary."""
+
         return {
             "schema_version": self.schema_version,
             "stores": [
@@ -153,6 +268,12 @@ class MonPanierData:
                         else None
                     ),
                     "barcodes": product.barcodes,
+                    "brand": product.brand,
+                    "quantity": product.quantity,
+                    "product_quantity": product.product_quantity,
+                    "product_quantity_unit": product.product_quantity_unit,
+                    "packaging": product.packaging,
+                    "packaging_tags": product.packaging_tags,
                 }
                 for product in self.products
             ],

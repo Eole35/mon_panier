@@ -32,19 +32,25 @@ class OpenFoodFactsProduct:
     brands: str | None = None
     categories: list[str] | None = None
     image_url: str | None = None
+    quantity: str | None = None
+    product_quantity: float | None = None
+    product_quantity_unit: str | None = None
+    packaging: str | None = None
+    packaging_tags: list[str] | None = None
 
 
 class OpenFoodFactsClient:
     """Client for the Open Food Facts API."""
 
     API_PATH = "/api/v3/product"
+    SEARCH_PATH = "/cgi/search.pl"
 
     def __init__(
         self,
         session: ClientSession,
         options: dict[str, Any] | None = None,
     ) -> None:
-        """Initialize the Open Food Facts client."""
+        """Initialize the client."""
         options = options or {}
 
         self._session = session
@@ -52,27 +58,40 @@ class OpenFoodFactsClient:
             CONF_OFF_URL,
             DEFAULT_OFF_URL,
         ).rstrip("/")
-
         self._country = options.get(
             CONF_OFF_COUNTRY,
             DEFAULT_OFF_COUNTRY,
         )
-
         self._language = options.get(
             CONF_OFF_LANGUAGE,
             DEFAULT_OFF_LANGUAGE,
         )
-
         self._user_agent = options.get(
             CONF_OFF_USER_AGENT,
             DEFAULT_OFF_USER_AGENT,
+        )
+
+    def _get_fields(self) -> str:
+        """Return the requested Open Food Facts fields."""
+        return (
+            "code,"
+            "product_name,"
+            "generic_name,"
+            "brands,"
+            "categories_tags,"
+            "image_front_url,"
+            "quantity,"
+            "product_quantity,"
+            "product_quantity_unit,"
+            "packaging,"
+            "packaging_tags"
         )
 
     async def get_product(
         self,
         barcode: str,
     ) -> OpenFoodFactsProduct | None:
-        """Retrieve a product from Open Food Facts."""
+        """Retrieve a product by barcode."""
         barcode = barcode.strip()
 
         if not barcode:
@@ -85,14 +104,7 @@ class OpenFoodFactsClient:
             "cc": self._country,
             "lc": self._language,
             "tags_lc": self._language,
-            "fields": (
-                "code,"
-                "product_name,"
-                "generic_name,"
-                "brands,"
-                "categories_tags,"
-                "image_front_url"
-            ),
+            "fields": self._get_fields(),
         }
 
         headers = {
@@ -129,12 +141,85 @@ class OpenFoodFactsClient:
 
         return self._parse_product(data, barcode)
 
+    async def search_products(
+        self,
+        query: str,
+        *,
+        limit: int = 5,
+    ) -> list[OpenFoodFactsProduct]:
+        """Search products by text."""
+        query = query.strip()
+
+        if not query:
+            return []
+
+        url = f"{self._base_url}{self.SEARCH_PATH}"
+
+        params = {
+            "action": "process",
+            "json": 1,
+            "search_terms": query,
+            "page_size": max(1, min(limit, 20)),
+            "fields": self._get_fields(),
+            "cc": self._country,
+            "lc": self._language,
+        }
+
+        headers = {
+            "User-Agent": self._user_agent,
+            "Accept": "application/json",
+        }
+
+        try:
+            async with self._session.get(
+                url,
+                params=params,
+                headers=headers,
+                timeout=10,
+            ) as response:
+                if response.status != 200:
+                    _LOGGER.warning(
+                        "Open Food Facts search returned HTTP %s",
+                        response.status,
+                    )
+                    return []
+
+                data = await response.json()
+
+        except (ClientError, TimeoutError) as err:
+            _LOGGER.warning(
+                "Unable to search Open Food Facts: %s",
+                err,
+            )
+            return []
+
+        products_data = data.get("products", [])
+
+        if not isinstance(products_data, list):
+            return []
+
+        products = []
+
+        for product_data in products_data:
+            if not isinstance(product_data, dict):
+                continue
+
+            product = self._parse_product(
+                {"product": product_data},
+                str(product_data.get("code", "")),
+            )
+
+            if product is not None:
+                products.append(product)
+
+        return products
+
     @staticmethod
     def _parse_product(
         data: dict[str, Any],
         barcode: str,
     ) -> OpenFoodFactsProduct | None:
-        """Parse an Open Food Facts response."""
+        """Parse a product response."""
         product = data.get("product")
 
         if not isinstance(product, dict):
@@ -160,6 +245,25 @@ class OpenFoodFactsClient:
             if isinstance(category, str)
         ]
 
+        packaging_tags = product.get("packaging_tags")
+
+        if not isinstance(packaging_tags, list):
+            packaging_tags = []
+
+        packaging_tags = [
+            tag
+            for tag in packaging_tags
+            if isinstance(tag, str)
+        ]
+
+        product_quantity = product.get("product_quantity")
+
+        try:
+            if product_quantity is not None:
+                product_quantity = float(product_quantity)
+        except (TypeError, ValueError):
+            product_quantity = None
+
         return OpenFoodFactsProduct(
             barcode=str(product.get("code") or barcode),
             name=product_name,
@@ -179,4 +283,21 @@ class OpenFoodFactsClient:
                 if product.get("image_front_url")
                 else None
             ),
+            quantity=(
+                str(product["quantity"]).strip()
+                if product.get("quantity")
+                else None
+            ),
+            product_quantity=product_quantity,
+            product_quantity_unit=(
+                str(product["product_quantity_unit"]).strip()
+                if product.get("product_quantity_unit")
+                else None
+            ),
+            packaging=(
+                str(product["packaging"]).strip()
+                if product.get("packaging")
+                else None
+            ),
+            packaging_tags=packaging_tags,
         )

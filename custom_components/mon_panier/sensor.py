@@ -5,10 +5,13 @@ from __future__ import annotations
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.dispatcher import (
+    async_dispatcher_connect,
+)
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DOMAIN, EVENT_STORE_CREATED
 from .coordinator import MonPanierCoordinator
 
 
@@ -18,21 +21,48 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Mon Panier sensors from a config entry."""
-    store_name = entry.data.get("name", entry.title)
-    store_id = entry.entry_id
+    repository = hass.data[DOMAIN]["repository"]
 
-    coordinator = MonPanierCoordinator(
+    entities = []
+
+    for store in repository.get_stores():
+        coordinator = MonPanierCoordinator(
+            hass,
+            store_id=store.id,
+            store_name=store.name,
+        )
+
+        await coordinator.async_refresh()
+
+        entities.append(
+            MonPanierSensor(coordinator)
+        )
+
+    async_add_entities(entities)
+
+    async def handle_store_created(store_id: str) -> None:
+        """Create a sensor for a newly created store."""
+        store = repository.get_store(store_id)
+
+        if store is None:
+            return
+
+        coordinator = MonPanierCoordinator(
+            hass,
+            store_id=store.id,
+            store_name=store.name,
+        )
+
+        await coordinator.async_refresh()
+
+        async_add_entities(
+            [MonPanierSensor(coordinator)]
+        )
+
+    async_dispatcher_connect(
         hass,
-        store_id=store_id,
-        store_name=store_name,
-    )
-
-    await coordinator.async_config_entry_first_refresh()
-
-    async_add_entities(
-        [
-            MonPanierSensor(coordinator),
-        ]
+        EVENT_STORE_CREATED,
+        handle_store_created,
     )
 
 
@@ -51,6 +81,11 @@ class MonPanierSensor(
 
         self._attr_name = coordinator.store_name
         self._attr_unique_id = f"{DOMAIN}_{coordinator.store_id}"
+
+    def _handle_coordinator_update(self) -> None:
+        """Update the sensor when the coordinator data changes."""
+        self._attr_name = self.coordinator.data["store_name"]
+        super()._handle_coordinator_update()
 
     @property
     def native_value(self) -> int:

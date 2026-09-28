@@ -182,3 +182,25 @@ delete_store:
       required: true
       selector:
         text:
+
+confirm_product:
+  name: Confirmer un produit
+  description: Confirme un produit trouvé sur Open Food Facts et l'ajoute à la liste.
+  fields:
+    confirmation_id:
+      name: Confirmation
+      description: Identifiant de la confirmation affiché dans la notification.
+      required: true
+      selector:
+        text:
+
+reject_product:
+  name: Refuser un produit
+  description: Refuse un produit trouvé sur Open Food Facts.
+  fields:
+    confirmation_id:
+      name: Confirmation
+      description: Identifiant de la confirmation affiché dans la notification.
+      required: true
+      selector:
+        text:

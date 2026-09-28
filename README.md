@@ -10,11 +10,11 @@ Le projet est conçu pour fonctionner sans serveur externe, sans compte utilisat
 
 ## ✨ Fonctionnalités
 
-Mon Panier est conçu autour des fonctionnalités suivantes :
+Mon Panier propose notamment :
 
 * 🏪 Plusieurs magasins, chacun avec sa propre liste
 * 📝 Ajout rapide d'articles
-* 🔎 Suggestions de produits dès 2 caractères
+* 🔎 Recherche locale de produits
 * 📦 Gestion des quantités et unités
 * 🗂️ Classement automatique par catégorie
 * ⭐ Produits favoris
@@ -23,12 +23,12 @@ Mon Panier est conçu autour des fonctionnalités suivantes :
 * 📦 Grand volume
 * ☑️ Gestion des articles achetés
 * 📜 Historique des achats
-* 📷 Lecture de codes-barres
-* 🌐 Utilisation d'Open Food Facts comme source externe
-* 🧠 Apprentissage des préférences et corrections personnelles
+* 📷 Gestion des codes-barres
+* 🌐 Recherche externe avec Open Food Facts
+* 🧠 Mémorisation locale des produits validés
 * 🤖 Aucun moteur IA requis
 * 🏠 Fonctionnement local dans Home Assistant
-* 🔌 Services et événements permettant à d'autres intégrations Home Assistant d'utiliser Mon Panier
+* 🔌 Services Home Assistant utilisables par des automatisations et d'autres intégrations
 
 ---
 
@@ -56,9 +56,9 @@ Mon Panier utilise actuellement 17 catégories :
 | Jardin            | 🌱    |
 | Animaux           | 🐕    |
 
-L'ordre des catégories pourra être personnalisé pour chaque magasin.
-
 Les catégories sans article ne sont pas affichées.
+
+La personnalisation de l'ordre des catégories reste prévue pour une évolution ultérieure.
 
 ---
 
@@ -85,44 +85,72 @@ Une liste peut ressembler à ceci :
 
 Lorsqu'un article est acheté, il est automatiquement masqué de la liste active.
 
-Il reste disponible dans l'historique des achats.
+Il reste disponible dans l'historique des achats lorsque cette fonctionnalité est utilisée.
 
 ---
 
 ## 🔎 Recherche de produits
 
-La recherche est conçue pour fonctionner **sans intelligence artificielle**.
+La recherche privilégie toujours les données locales.
 
-Elle utilise progressivement plusieurs niveaux de recherche :
-
-1. Produits personnels
-2. Référentiel intégré
-3. Synonymes et variantes
-4. Correspondance partielle
-5. Recherche approximative
-6. Open Food Facts si nécessaire
-7. Création manuelle si le produit reste inconnu
-
-La recherche devient disponible à partir de **2 caractères**.
-
-Exemples :
+Le fonctionnement général est :
 
 ```text
-pdt        → Pommes de terre
-patates    → Pommes de terre
-ban        → Bananes
-lardon     → Lardons
+Saisie utilisateur
+      ↓
+Parsing de la quantité et de l'unité
+      ↓
+Recherche locale
+      ├── produit connu → utilisation immédiate
+      │
+      └── produit inconnu
+              ↓
+        Open Food Facts
+              ├── produit trouvé
+              │      ↓
+              │  confirmation utilisateur
+              │      ↓
+              │  mémorisation locale
+              │
+              └── aucun résultat
 ```
 
-Les produits favoris et les produits déjà utilisés sont pris en compte dans la recherche.
+La recherche locale peut exploiter :
 
-Les corrections personnelles sont mémorisées afin d'améliorer progressivement les résultats pour chaque installation.
+1. les produits personnels ;
+2. les produits déjà mémorisés ;
+3. les synonymes et variantes ;
+4. les correspondances partielles.
+
+Lorsqu'un produit n'est pas connu localement, Open Food Facts peut être utilisé comme source externe.
+
+Un produit découvert sur Open Food Facts **n'est pas mémorisé automatiquement** : une confirmation utilisateur est nécessaire.
 
 ---
 
 ## 📦 Quantités et unités
 
-Mon Panier permet de gérer différentes unités :
+Le parser intégré permet de distinguer la **quantité achetée** des informations concernant le conditionnement du produit.
+
+Exemples :
+
+```text
+5 bananes
+→ quantité : 5 pièces
+
+2 pots de sauce
+→ quantité : 2 pots
+
+sauce mexicaine 300g
+→ quantité : 1 pièce
+→ quantité du produit : 300 g
+
+2 pots de 300g de sauce mexicaine
+→ quantité achetée : 2 pots
+→ quantité du produit : information séparée
+```
+
+Les unités courantes comprennent notamment :
 
 ```text
 pièce
@@ -157,8 +185,6 @@ Exemples :
 
 Lorsque le même produit possède les mêmes propriétés et la même unité, les quantités peuvent être regroupées.
 
-Par exemple :
-
 ```text
 Bananes × 5
 +
@@ -169,85 +195,127 @@ Bananes × 8
 
 ---
 
-## ⭐ Produits favoris
-
-Un produit peut être marqué comme **favori**.
-
-Les favoris sont utilisés pour améliorer la priorité des suggestions.
-
-Le statut favori appartient au **produit** et non à un article particulier de la liste.
-
----
-
-## 📷 Code-barres
-
-Le fonctionnement prévu est :
-
-```text
-Code-barres
-    ↓
-Recherche locale
-    ├── trouvé → ajout immédiat
-    │
-    └── inconnu
-          ↓
-    Open Food Facts
-          ├── trouvé → validation utilisateur
-          │
-          └── inconnu → ajout manuel
-```
-
-Les formats pris en charge actuellement sont :
-
-* EAN-8
-* EAN-13
-* UPC-A
-
-Après validation d'un produit provenant d'Open Food Facts, l'association entre le code-barres et le produit est mémorisée localement.
-
----
-
 ## 🌐 Open Food Facts
 
 Mon Panier peut utiliser **Open Food Facts** comme source externe lorsqu'un produit n'est pas connu localement.
 
-Le fonctionnement privilégie toujours les données locales :
+Les recherches utilisent l'API Open Food Facts et récupèrent notamment :
+
+* le nom du produit ;
+* la marque ;
+* les catégories ;
+* le code-barres ;
+* la quantité du produit ;
+* l'unité de quantité ;
+* le conditionnement ;
+* les informations de conditionnement.
+
+Par exemple, un produit Open Food Facts peut fournir :
 
 ```text
-Produit personnel
-      ↓
-Référentiel intégré
-      ↓
-Open Food Facts
-      ↓
-Création manuelle
+Nom          : Sauce mexicaine medium
+Marque       : Marque Repère, Tables du Monde
+Quantité     : 315 g
+Conditionnement : Verre, Bocal
+Code-barres  : 3564700299067
 ```
 
-Un produit découvert via Open Food Facts doit être validé avant d'être mémorisé dans la base locale.
+Ces informations permettent de compléter la fiche produit locale.
 
-Open Food Facts est donc utilisé comme **source de secours**, et non comme base obligatoire au fonctionnement de Mon Panier.
+### Confirmation utilisateur
 
-L'utilisation d'Open Food Facts peut être configurée dans les options de l'intégration.
+Lorsqu'un produit est trouvé sur Open Food Facts, Mon Panier demande une confirmation avant de le mémoriser.
+
+Le fonctionnement est :
+
+```text
+Recherche
+   ↓
+Open Food Facts
+   ↓
+Produit trouvé
+   ↓
+Confirmation utilisateur
+   ├── confirmer → mémorisation locale + ajout à la liste
+   │
+   └── refuser   → aucune mémorisation
+```
+
+Une confirmation est associée au code-barres du produit trouvé.
+
+Deux services permettent de gérer cette étape :
+
+```text
+mon_panier.confirm_product
+mon_panier.reject_product
+```
+
+Après confirmation, le produit devient un produit local et pourra être retrouvé directement lors des recherches suivantes.
+
+Le code-barres est également associé au produit local.
 
 ---
 
-## 🧠 Apprentissage personnel
+## 📷 Codes-barres
 
-Mon Panier ne nécessite aucun moteur IA.
+Les produits peuvent être associés à des codes-barres.
 
-L'apprentissage repose sur des associations locales entre les saisies de l'utilisateur et les produits.
+Lorsqu'un code-barres est connu localement, le produit peut être retrouvé sans effectuer de recherche externe.
 
-Par exemple :
+Pour un produit inconnu, Open Food Facts peut être interrogé afin de récupérer ses informations.
+
+Après validation, l'association est mémorisée localement :
 
 ```text
-"lardons allumette"
-        ↓
-Lardons allumettes
+Code-barres
+    ↓
+Produit local
 ```
 
-Une correction personnelle peut ensuite être réutilisée lors des recherches suivantes.
+Les codes-barres de produits alimentaires courants sont principalement basés sur les formats EAN/UPC.
 
-Les corrections personnelles ont priorité sur les données génériques du référentiel.
+---
+
+## 🧠 Mémorisation locale
+
+Mon Panier privilégie les données locales.
+
+Lorsqu'un produit Open Food Facts est confirmé :
+
+```text
+Open Food Facts
+      ↓
+Produit validé
+      ↓
+Produit local
+      ↓
+Mémorisation
+```
+
+Les informations récupérées peuvent notamment être conservées :
+
+* nom ;
+* marque ;
+* quantité ;
+* unité ;
+* conditionnement ;
+* catégories ;
+* code-barres ;
+* source du produit.
+
+Les informations locales existantes ne sont pas écrasées inutilement par les données externes.
+
+L'objectif est de construire progressivement un référentiel adapté à chaque installation Home Assistant.
+
+---
+
+## ⭐ Produits favoris
+
+Un produit peut être marqué comme **favori**.
+
+Les favoris sont destinés à améliorer la priorité des suggestions et la facilité d'utilisation.
+
+Le statut favori appartient au **produit** et non à un article particulier de la liste.
 
 ---
 
@@ -265,15 +333,15 @@ Exemple :
 
 Chaque magasin possède un identifiant interne stable indépendant de son nom affiché.
 
-Chaque magasin peut également disposer de son propre ordre de catégories.
-
-L'historique des achats est conservé indépendamment de la liste active.
+L'architecture permet de conserver les données des différents magasins indépendamment.
 
 ---
 
 ## 📜 Historique
 
-Lorsqu'un article est marqué comme acheté, il peut être conservé dans l'historique avec notamment :
+L'historique permet de conserver les informations liées aux articles achetés.
+
+Les données peuvent notamment comprendre :
 
 * le magasin ;
 * le produit ;
@@ -288,11 +356,11 @@ L'historique est indépendant de la liste active.
 
 ---
 
-## 🔌 Intégration avec Home Assistant
+## 🔌 Services Home Assistant
 
-Mon Panier est conçu comme un véritable composant Home Assistant.
+Mon Panier expose des services Home Assistant afin de pouvoir être utilisé depuis des automatisations ou d'autres intégrations.
 
-Des services permettront notamment de gérer les listes et les magasins :
+### Ajouter un article
 
 ```yaml
 action: mon_panier.add_item
@@ -302,7 +370,9 @@ data:
   quantity: 4
 ```
 
-Les services prévus comprennent notamment :
+### Services disponibles
+
+Les services actuellement intégrés comprennent notamment :
 
 ```text
 mon_panier.add_item
@@ -316,27 +386,47 @@ mon_panier.delete_list
 mon_panier.create_store
 mon_panier.rename_store
 mon_panier.delete_store
+
+mon_panier.confirm_product
+mon_panier.reject_product
 ```
 
-Les automatisations et d'autres intégrations pourront ainsi utiliser Mon Panier sans passer par son interface graphique.
+Les services de confirmation sont utilisés lorsqu'un produit a été trouvé sur Open Food Facts et attend une validation utilisateur.
 
-Des événements permettront également de réagir aux actions effectuées dans les listes.
+L'intégration expose également des événements permettant aux autres composants de Home Assistant de réagir aux actions effectuées dans Mon Panier.
 
 ---
 
-## 🏗️ Philosophie du projet
+## 🏗️ Architecture
 
-Mon Panier est conçu pour être :
+Le projet sépare le moteur métier de la couche Home Assistant.
 
-* **Local** — les données personnelles restent dans Home Assistant
-* **Léger** — adapté aux installations Home Assistant sur matériel limité
-* **Indépendant** — le moteur de gestion des courses ne dépend pas de l'interface
-* **Extensible** — utilisable par d'autres intégrations et automatisations
-* **Simple** — pas de serveur externe obligatoire, pas de compte et pas d'abonnement
+Les principaux composants sont :
 
-L'interface graphique n'est qu'une des façons d'utiliser Mon Panier.
+```text
+Entrée utilisateur
+       ↓
+Parser
+       ↓
+ProductService
+       ↓
+Recherche locale
+       ↓
+Open Food Facts
+       ↓
+Confirmation
+       ↓
+Repository
+       ↓
+Liste de courses
+```
 
-Le moteur métier est séparé de l'interface afin de permettre son utilisation par d'autres composants Home Assistant.
+Cette séparation permet notamment :
+
+* de tester le moteur indépendamment de l'interface ;
+* de conserver une logique métier locale ;
+* de réutiliser les services depuis Home Assistant ;
+* de faire évoluer l'interface sans réécrire le moteur.
 
 ---
 
@@ -355,7 +445,9 @@ mon-panier/
 │       ├── config_flow.py
 │       ├── coordinator.py
 │       ├── sensor.py
+│       ├── services.py
 │       ├── services.yaml
+│       ├── storage.py
 │       ├── strings.json
 │       │
 │       ├── core/
@@ -384,20 +476,9 @@ mon-panier/
 │       └── translations/
 │
 ├── tests/
-│   ├── test_parser.py
-│   ├── test_search.py
-│   ├── test_repository.py
-│   ├── test_learning.py
-│   ├── test_services.py
-│   ├── test_barcode.py
-│   ├── test_product_service.py
-│   └── test_category_mapper.py
 │
 ├── hacs.json
 ├── README.md
-├── CHANGELOG.md
-├── LICENSE
-├── CONTRIBUTING.md
 ├── pyproject.toml
 └── .gitignore
 ```
@@ -406,29 +487,37 @@ mon-panier/
 
 ## 🧪 Tests
 
-Les tests sont regroupés dans le dossier :
+Les tests automatisés sont regroupés dans :
 
 ```text
 tests/
 ```
 
-Ils couvrent progressivement les différentes parties du projet :
+Ils couvrent notamment :
+
+* le parsing des quantités et unités ;
+* les modèles de données ;
+* le stockage ;
+* la recherche de produits ;
+* le service produit ;
+* l'intégration Open Food Facts ;
+* le mapping des catégories ;
+* les services Home Assistant ;
+* les confirmations de produits Open Food Facts.
+
+L'état actuel du projet est vérifié par la suite de tests automatisés.
+
+Dernière vérification :
 
 ```text
-tests/
-├── test_parser.py
-├── test_search.py
-├── test_repository.py
-├── test_learning.py
-├── test_services.py
-├── test_barcode.py
-├── test_product_service.py
-└── test_category_mapper.py
+84 tests passed
 ```
 
-L'objectif est de tester le moteur métier indépendamment de l'interface graphique.
+Les tests sont exécutés avec :
 
-Les tests seront complétés au fur et à mesure de l'avancement du projet.
+```bash
+pytest -q
+```
 
 ---
 
@@ -436,53 +525,44 @@ Les tests seront complétés au fur et à mesure de l'avancement du projet.
 
 **Version actuelle : 0.1.0**
 
-Le projet est actuellement en développement.
-
-L'architecture et les principaux composants du moteur sont en cours de construction et de validation.
+Le projet est toujours en développement, mais le socle de l'intégration est maintenant fonctionnel.
 
 ### Avancement
 
-* [x] Définition de l'architecture
-* [x] Définition des catégories
-* [x] Définition du modèle de données
-* [x] Définition du fonctionnement des listes
-* [x] Définition du fonctionnement des magasins
-* [x] Définition du fonctionnement du scanner
-* [x] Choix d'Open Food Facts
-* [x] Définition des services Home Assistant
-* [x] Moteur de recherche
+* [x] Architecture du projet
+* [x] Modèle de données
+* [x] Catégories
+* [x] Produits
+* [x] Listes et magasins
+* [x] Repository
+* [x] Stockage Home Assistant
 * [x] Parser des quantités et unités
-* [x] Modèle produits
-* [x] Gestion des codes-barres
-* [x] Mapping des catégories Open Food Facts
+* [x] Recherche locale
 * [x] Service produit
-* [x] Premiers tests automatisés
-* [ ] Socle complet de l'intégration Home Assistant
-* [ ] Stockage persistant Home Assistant
-* [ ] Création et gestion complète des magasins
-* [ ] Gestion complète des listes
-* [ ] Référentiel produits final
-* [ ] Recherche et suggestions intégrées à Home Assistant
-* [ ] Historique complet
-* [ ] Apprentissage personnel complet
-* [ ] Intégration Open Food Facts complète
+* [x] Mapping des catégories
+* [x] Gestion des codes-barres
+* [x] Intégration Open Food Facts
+* [x] Récupération des métadonnées produit
+* [x] Confirmation utilisateur des produits externes
+* [x] Mémorisation locale des produits validés
+* [x] Services Home Assistant principaux
+* [x] Tests automatisés
+* [x] Validation Hassfest
+* [ ] Interface graphique complète
 * [ ] Scanner intégré à l'interface
-* [ ] Interface graphique
-* [ ] Tests complets
-* [ ] Validation HACS
+* [ ] Référentiel produit finalisé
+* [ ] Recherche et suggestions avancées
+* [ ] Apprentissage personnel complet
+* [ ] Historique complet
+* [ ] Personnalisation complète des catégories par magasin
 * [ ] Première version stable
+* [ ] Validation HACS
 
 ---
 
 ## 📦 Installation
 
-### HACS
-
-L'installation via HACS sera disponible lorsque l'intégration aura atteint un niveau suffisamment stable pour une première publication.
-
-Le dépôt est conçu pour être compatible avec HACS.
-
-### Installation manuelle
+### Développement
 
 Pendant le développement, l'intégration peut être installée manuellement dans :
 
@@ -490,7 +570,13 @@ Pendant le développement, l'intégration peut être installée manuellement dan
 /config/custom_components/mon_panier/
 ```
 
-Après installation, redémarrez Home Assistant.
+Puis redémarrer Home Assistant.
+
+Pour le développement local, le dépôt peut également être lié symboliquement au dossier `custom_components` de Home Assistant.
+
+### HACS
+
+L'installation via HACS sera proposée lorsque l'intégration aura atteint un niveau de stabilité suffisant pour une première publication.
 
 > ⚠️ La version 0.1.0 est une version de développement et ne doit pas encore être considérée comme une version stable.
 
@@ -500,15 +586,11 @@ Après installation, redémarrez Home Assistant.
 
 Mon Panier utilise la configuration de Home Assistant.
 
-Les options d'Open Food Facts permettent notamment de configurer :
+Open Food Facts peut être activé ou désactivé selon la configuration de l'intégration.
 
-* l'activation ou la désactivation d'Open Food Facts ;
-* l'URL du service ;
-* le pays ;
-* la langue ;
-* le User-Agent utilisé pour les requêtes.
+Lorsque la recherche externe est activée, les requêtes utilisent les paramètres configurés pour Open Food Facts, notamment la langue et les informations nécessaires à l'identification du client.
 
-Le fonctionnement local reste possible lorsque Open Food Facts est désactivé.
+Le fonctionnement local reste possible sans Open Food Facts.
 
 ---
 
@@ -516,9 +598,11 @@ Le fonctionnement local reste possible lorsque Open Food Facts est désactivé.
 
 Les données personnelles de Mon Panier sont destinées à rester dans l'installation Home Assistant.
 
-Open Food Facts est uniquement utilisé lorsqu'une recherche externe est nécessaire et que cette fonctionnalité est activée.
+Les produits connus localement sont recherchés en priorité.
 
-Les produits déjà connus localement n'ont pas besoin d'être recherchés sur Open Food Facts.
+Open Food Facts est sollicité uniquement lorsqu'une recherche externe est nécessaire et que cette fonctionnalité est activée.
+
+Lorsqu'une donnée est récupérée depuis Open Food Facts, elle n'est pas automatiquement mémorisée : une validation utilisateur est nécessaire.
 
 ---
 
@@ -526,13 +610,7 @@ Les produits déjà connus localement n'ont pas besoin d'être recherchés sur O
 
 Les contributions sont les bienvenues.
 
-Le projet étant encore en développement, il est recommandé de consulter :
-
-```text
-CONTRIBUTING.md
-```
-
-avant de proposer des modifications importantes.
+Le projet étant encore en développement, il est recommandé de consulter les éventuelles instructions de contribution avant de proposer des modifications importantes.
 
 Les contributions doivent préserver les objectifs principaux du projet :
 

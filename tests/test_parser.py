@@ -118,3 +118,28 @@ def test_parse_empty_input() -> None:
     assert result.text == ""
     assert result.quantity == 1
     assert result.unit == UNIT_PIECE
+
+
+def test_parse_product_with_trailing_package_quantity() -> None:
+    """Parse a product followed by its package quantity."""
+    parser = ShoppingInputParser()
+    result = parser.parse("sauce mexicaine 300g")
+
+    assert result.text == "sauce mexicaine"
+    assert result.quantity == 1
+    assert result.unit == UNIT_PIECE
+    assert result.package_quantity == 300
+    assert result.package_unit_value == UNIT_GRAM
+
+
+def test_parse_multiple_packages_with_package_quantity() -> None:
+    """Parse purchase quantity separately from package quantity."""
+    parser = ShoppingInputParser()
+    result = parser.parse("2 pots de 300g de sauce mexicaine")
+
+    assert result.text == "sauce mexicaine"
+    assert result.quantity == 2
+    assert result.unit == "pot"
+    assert result.package_unit == "pot"
+    assert result.package_quantity == 300
+    assert result.package_unit_value == UNIT_GRAM

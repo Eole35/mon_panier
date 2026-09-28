@@ -60,26 +60,60 @@ class ProductService:
     ) -> list[Product]:
         """Search personal and builtin products."""
         personal_products = self.repository.get_products()
-
         personal_ids = {
             product.id
             for product in personal_products
         }
-
         builtin_products = [
             product
             for product in self.catalog.get_products()
             if product.id not in personal_ids
         ]
-
         products = [
             *personal_products,
             *builtin_products,
         ]
-
         return ProductSearch(products).search(
             query,
             limit=limit,
+        )
+
+    async def find_by_text(
+        self,
+        query: str,
+    ) -> ProductLookupResult:
+        """Find a product locally, then through Open Food Facts."""
+        products = self.search(
+            query,
+            limit=1,
+        )
+        if products:
+            product = products[0]
+            return ProductLookupResult(
+                product=product,
+                source=product.source,
+                category=product.category,
+                requires_confirmation=False,
+            )
+
+        if self.openfoodfacts is None:
+            return ProductLookupResult()
+
+        external_products = await self.openfoodfacts.search_products(
+            query,
+        )
+        if not external_products:
+            return ProductLookupResult()
+
+        external_product = external_products[0]
+        category = self.category_mapper.map_categories(
+            external_product.categories,
+        )
+        return ProductLookupResult(
+            external_product=external_product,
+            source=SOURCE_OPENFOODFACTS,
+            category=category,
+            requires_confirmation=True,
         )
 
     def find_local_by_barcode(
@@ -88,14 +122,12 @@ class ProductService:
     ) -> ProductLookupResult:
         """Find a product by barcode in local databases."""
         parsed_barcode = self.barcode_scanner.parse(barcode)
-
         if parsed_barcode is None:
             return ProductLookupResult()
 
         product = self._find_local_barcode(
             parsed_barcode.value,
         )
-
         if product is None:
             return ProductLookupResult()
 
@@ -112,7 +144,6 @@ class ProductService:
     ) -> ProductLookupResult:
         """Find a product locally, then through Open Food Facts."""
         parsed_barcode = self.barcode_scanner.parse(barcode)
-
         if parsed_barcode is None:
             return ProductLookupResult()
 
@@ -120,7 +151,6 @@ class ProductService:
         product = self._find_personal_barcode(
             parsed_barcode.value,
         )
-
         if product is not None:
             return ProductLookupResult(
                 product=product,
@@ -133,7 +163,6 @@ class ProductService:
         product = self.catalog.find_by_barcode(
             parsed_barcode.value,
         )
-
         if product is not None:
             return ProductLookupResult(
                 product=product,
@@ -149,14 +178,12 @@ class ProductService:
         external_product = await self.openfoodfacts.get_product(
             parsed_barcode.value,
         )
-
         if external_product is None:
             return ProductLookupResult()
 
         category = self.category_mapper.map_categories(
             external_product.categories,
         )
-
         return ProductLookupResult(
             external_product=external_product,
             source=SOURCE_OPENFOODFACTS,
@@ -173,31 +200,53 @@ class ProductService:
         product_id = self._create_product_id(
             external_product.name,
         )
-
-        existing = self.repository.get_product(
+        product = self.repository.get_product(
             product_id,
         )
 
-        if existing is not None:
-            self.repository.add_barcode(
-                existing.id,
-                external_product.barcode,
+        if product is None:
+            product = self.repository.add_product(
+                name=external_product.name,
+                category=category,
+                product_id=product_id,
+                source=SOURCE_OPENFOODFACTS,
             )
-            return existing
 
-        product = self.repository.add_product(
-            name=external_product.name,
-            category=category,
-            product_id=product_id,
-            source=SOURCE_OPENFOODFACTS,
+        self._apply_external_metadata(
+            product,
+            external_product,
         )
 
         self.repository.add_barcode(
             product.id,
             external_product.barcode,
         )
-
         return product
+
+    @staticmethod
+    def _apply_external_metadata(
+        product: Product,
+        external_product: OpenFoodFactsProduct,
+    ) -> None:
+        """Fill missing product metadata from Open Food Facts."""
+        metadata = {
+            "brand": external_product.brands,
+            "quantity": external_product.quantity,
+            "product_quantity": external_product.product_quantity,
+            "product_quantity_unit": (
+                external_product.product_quantity_unit
+            ),
+            "packaging": external_product.packaging,
+        }
+
+        for field_name, value in metadata.items():
+            if value is not None and not getattr(product, field_name, None):
+                setattr(product, field_name, value)
+
+        if external_product.packaging_tags and not product.packaging_tags:
+            product.packaging_tags = list(
+                external_product.packaging_tags,
+            )
 
     def memorize_personal_rule(
         self,
@@ -232,7 +281,6 @@ class ProductService:
         product = self._find_personal_barcode(
             barcode,
         )
-
         if product is not None:
             return product
 

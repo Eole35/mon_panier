@@ -234,6 +234,7 @@ class FakeOpenFoodFactsClient:
     ) -> None:
         self.product = product
         self.requested_barcode: str | None = None
+        self.requested_query: str | None = None
 
     async def get_product(
         self,
@@ -243,37 +244,13 @@ class FakeOpenFoodFactsClient:
         self.requested_barcode = barcode
         return self.product
 
-
-@pytest.mark.asyncio
-async def test_find_by_barcode_uses_openfoodfacts() -> None:
-    """Test that Open Food Facts is queried for an unknown local barcode."""
-    external_product = OpenFoodFactsProduct(
-        barcode="3017620422003",
-        name="Produit Open Food Facts",
-        generic_name="Produit alimentaire",
-        brands="Marque",
-        categories=["en:beverages"],
-    )
-
-    fake_client = FakeOpenFoodFactsClient(
-        external_product,
-    )
-
-    service = create_service(
-        openfoodfacts=fake_client,
-    )
-
-    result = await service.find_by_barcode(
-        "3017620422003",
-    )
-
-    assert fake_client.requested_barcode == "3017620422003"
-
-    assert result.product is None
-    assert result.external_product is external_product
-    assert result.source == "openfoodfacts"
-    assert result.category == "boissons"
-    assert result.requires_confirmation is True
+    async def search_products(
+        self,
+        query: str,
+    ) -> list[OpenFoodFactsProduct]:
+        """Return the configured product for a text search."""
+        self.requested_query = query
+        return [self.product] if self.product is not None else []
 
 
 @pytest.mark.asyncio
@@ -585,3 +562,29 @@ def test_find_local_by_barcode_normalizes_scanner_output() -> None:
 
     assert result.product is not None
     assert result.product.id == "produit_builtin"
+
+@pytest.mark.asyncio
+async def test_search_text_uses_openfoodfacts_when_local_product_is_unknown() -> None:
+    """Test that an unknown text query is searched in Open Food Facts."""
+    external_product = OpenFoodFactsProduct(
+        barcode="3564700299067",
+        name="Sauce mexicaine medium",
+        brands="Marque Repère",
+        categories=["en:sauces"],
+    )
+
+    fake_client = FakeOpenFoodFactsClient(external_product)
+    service = create_service(openfoodfacts=fake_client)
+
+    result = await service.find_by_text(
+        "sauce mexicaine medium marque repere"
+    )
+
+    assert fake_client.requested_query == (
+        "sauce mexicaine medium marque repere"
+    )
+    assert result.product is None
+    assert result.external_product is external_product
+    assert result.source == "openfoodfacts"
+    assert result.category is not None
+    assert result.requires_confirmation is True
