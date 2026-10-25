@@ -1,3 +1,4 @@
+
 """Services for Mon Panier."""
 
 from __future__ import annotations
@@ -6,8 +7,20 @@ from homeassistant.components import persistent_notification
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers.dispatcher import async_dispatcher_send
 
-from .const import DOMAIN, EVENT_STORE_CREATED
+from .const import DOMAIN, EVENT_LIST_UPDATED, EVENT_STORE_CREATED
 from .core.parser import ShoppingInputParser
+
+
+def _dispatch_list_updated(
+    hass: HomeAssistant,
+    store_id: str,
+) -> None:
+    """Notify listeners that a shopping list has changed."""
+    async_dispatcher_send(
+        hass,
+        EVENT_LIST_UPDATED,
+        store_id,
+    )
 
 
 async def async_create_store(
@@ -175,6 +188,7 @@ async def async_add_item(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_confirm_product(
@@ -214,6 +228,7 @@ async def async_confirm_product(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, pending["store"])
 
     del pending_confirmations[confirmation_id]
 
@@ -259,6 +274,7 @@ async def async_remove_item(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_update_item(
@@ -280,6 +296,7 @@ async def async_update_item(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_complete_item(
@@ -296,6 +313,7 @@ async def async_complete_item(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_uncomplete_item(
@@ -312,6 +330,7 @@ async def async_uncomplete_item(
     )
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_clear_list(
@@ -325,6 +344,7 @@ async def async_clear_list(
     repository.clear_list(call.data["store"])
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])
 
 
 async def async_delete_list(
@@ -338,3 +358,4 @@ async def async_delete_list(
     repository.delete_list(call.data["store"])
 
     await storage.async_save(repository.data)
+    _dispatch_list_updated(hass, call.data["store"])

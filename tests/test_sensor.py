@@ -215,3 +215,50 @@ async def test_create_store_creates_sensor_automatically(hass) -> None:
         entity.coordinator.store_id
         for entity in added_entities
     } == {"carrefour", "leclerc"}
+
+
+@pytest.mark.asyncio
+async def test_list_updated_signal_refreshes_sensor(hass) -> None:
+    """Test that a list update signal refreshes the sensor."""
+    from custom_components.mon_panier.const import (
+        DOMAIN,
+        EVENT_LIST_UPDATED,
+    )
+    from custom_components.mon_panier.coordinator import MonPanierCoordinator
+    from custom_components.mon_panier.sensor import async_setup_entry
+
+    repository = MonPanierRepository(MonPanierData())
+    store = repository.create_store("Carrefour")
+
+    hass.data[DOMAIN] = {
+        "repository": repository,
+    }
+
+    added_entities = []
+
+    def add_entities(entities) -> None:
+        added_entities.extend(entities)
+
+    await async_setup_entry(hass, None, add_entities)
+
+    sensor = added_entities[0]
+    coordinator = sensor.coordinator
+
+    assert sensor.native_value == 0
+
+    product = repository.add_product(
+        name="Bananes",
+        category="fruits",
+        product_id="bananes",
+    )
+    repository.add_item(store.id, product.id, quantity=1)
+
+    async_dispatcher_send(
+        hass,
+        EVENT_LIST_UPDATED,
+        store.id,
+    )
+    await hass.async_block_till_done()
+
+    assert coordinator.data["items_count"] == 1
+    assert sensor.native_value == 1

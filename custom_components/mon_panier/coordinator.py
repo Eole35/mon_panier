@@ -37,7 +37,6 @@ class MonPanierCoordinator(DataUpdateCoordinator[dict[str, Any]]):
     async def _async_update_data(self) -> dict[str, Any]:
         """Fetch the latest Mon Panier data."""
         repository = self.hass.data[DOMAIN]["repository"]
-
         store = repository.get_store(self.store_id)
         shopping_list = repository.get_list(self.store_id)
 
@@ -47,39 +46,45 @@ class MonPanierCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             else self.store_name
         )
 
-        if shopping_list is None:
-            return {
-                "store_id": self.store_id,
-                "store_name": store_name,
-                "items": [],
-                "items_count": 0,
-                "purchased_count": 0,
-            }
+        items = []
 
-        items = [
-            {
-                "id": item.id,
-                "product_id": item.product_id,
-                "quantity": item.quantity,
-                "unit": item.unit,
-                "checked": item.checked,
-                "bio": item.bio,
-                "promotion": item.promotion,
-                "large_quantity": item.large_quantity,
-            }
-            for item in shopping_list.items
-        ]
+        if shopping_list is not None:
+            for item in shopping_list.items:
+                product = repository.get_product(item.product_id)
+
+                items.append(
+                    {
+                        "id": item.id,
+                        "product_id": item.product_id,
+                        "product_name": (
+                            product.name
+                            if product is not None
+                            else item.product_id
+                        ),
+                        "category": (
+                            product.category
+                            if product is not None
+                            else "autre"
+                        ),
+                        "brand": (
+                            product.brand
+                            if product is not None
+                            else None
+                        ),
+                        "quantity": item.quantity,
+                        "unit": item.unit,
+                        "checked": item.checked,
+                        "bio": item.bio,
+                        "promotion": item.promotion,
+                        "large_quantity": item.large_quantity,
+                    }
+                )
 
         items_count = sum(
-            1
-            for item in shopping_list.items
-            if not item.checked
+            1 for item in items if not item["checked"]
         )
-
         purchased_count = sum(
-            1
-            for item in shopping_list.items
-            if item.checked
+            1 for item in items if item["checked"]
         )
 
         return {

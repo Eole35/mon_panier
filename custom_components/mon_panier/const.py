@@ -28,6 +28,7 @@ EVENT_ITEM_ADDED = f"{DOMAIN}_item_added"
 EVENT_ITEM_COMPLETED = f"{DOMAIN}_item_completed"
 EVENT_STORE_CREATED = f"{DOMAIN}_store_created"
 EVENT_STORE_DELETED = f"{DOMAIN}_store_deleted"
+EVENT_LIST_UPDATED = f"{DOMAIN}_list_updated"
 
 # Services
 SERVICE_ADD_ITEM = "add_item"
